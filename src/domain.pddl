@@ -1,24 +1,33 @@
+    ;move up/down/left/right
+    ;take-item
+    ;drop-item
+    
+    ;implement grid
+
 (define
     (domain example)
-    (:requirements :strips :numeric-fluents )
+    (:requirements :strips :typing :numeric-fluents :fluents )
 
     ;(:domain-variables ) ;deprecated
 
-    (:types starship robot planet - object)
+    (:types carrier location item - object)
     
+
     (:predicates ;todo: define predicates here
-        (robot-at ?x - robot ?y - planet)
-        (starship-at ?s - starship ?p - planet)
-        (in-ship ?r - robot ?s - starship)
-        (has-capacity ?s - starship)
+        (item-at ?i - item ?l - location) 
+        (carrier-at ?c - carrier ?l - location) 
+ 
     )
 
-    (:functions
-        (fuel-level ?s - starship)(fuel-required ?p1 ?p2 - planet)
-        (max-fuel-capacity ?s - starship)
-        (max-robot-capacity ?s - starship)
+  (:functions
+        (carrier-capacity ?c - carrier) (fuel-capacity ?c-carrier)  
+        (fuel-used ?c-carrier) (fuel-level ?c-carrier)
+        (fuel-required ?l1 ?l2 - location) 
+
     )
 
+
+    
     (:action 
         :parameters (?a)
         :precondition (and
