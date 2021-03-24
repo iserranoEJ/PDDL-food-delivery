@@ -21,7 +21,7 @@
     )
     (:goal (and
             (item-at-carrier package1 vehicle1) 
-            (carrier-at three)
+            (carrier-at vehicle1 three)
         )
     )
 )
