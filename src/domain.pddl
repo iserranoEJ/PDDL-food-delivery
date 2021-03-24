@@ -37,8 +37,8 @@
             (= ?duration 1)
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
+                (at start (carrier-at ?c ?lx1 ?ly1))
                 (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
-                (over all (carrier-at ?c ?lx1 ?ly1))
 
         )
         :effect (and 
