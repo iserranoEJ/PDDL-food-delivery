@@ -12,7 +12,7 @@
         (adjacent three two)
 
         (item-at package1 one two)
-        (carrier-at vehicle1 two three)
+        (carrier-at vehicle1 one three)
         (= (fuel-level vehicle1) 1000)
         (= (item-weight package1) 1)
         (= (carrier-capacity vehicle1) 15)
