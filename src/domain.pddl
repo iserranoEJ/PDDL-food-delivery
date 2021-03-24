@@ -50,11 +50,11 @@
         :duration (= ?duration 3)
         :condition (and 
             (at start (item-at ?i ?lx ?ly))
-            (at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
+            ;(at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
             (over all (carrier-at ?c ?lx ?ly))
         )
         :effect (and
-            (at end  (not(item-at ?i ?lx ?ly))) 
+            ;(at end  (not(item-at ?i ?lx ?ly))) 
             (at end (and(item-at-carrier ?i ?c) 
             (increase (carrier-weight ?c) (item-weight ?i))
             ))
