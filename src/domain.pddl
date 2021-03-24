@@ -20,13 +20,13 @@
     )
 
   (:functions
-        (carrier-capacity ?c - carrier) (fuel-capacity ?c-carrier)  
-        (fuel-used ?c-carrier) (fuel-level ?c-carrier)
+        (carrier-capacity ?c -carrier) (fuel-capacity ?c -carrier)  
+        (fuel-used ?c -carrier) (fuel-level ?c -carrier)
         
-        (fuel-required ?lx1 ?ly1 ?lx2 ?ly2 - location) (total-fuel-used)
+        (total-fuel-used)
         (item-weight ?i - item)
-        (carrier-weight ?c-carrier)
-        (carrier-speed ?c - carrier)
+        (carrier-weight ?c -carrier)
+        (carrier-speed ?c -carrier)
         
     )
 
@@ -44,15 +44,15 @@
         )
         :effect (and
             (at end  (not(item-at ?i ?lx ?ly))) 
-            (at end ((item-at-carrier ?i ?c) (increase(carrier-weight ?c) (item-weight ?i))))
-            (decrease (carrier-speed ?c) (item-weight ?i))
-            )
-            
-        )
+            (at end (and(item-at-carrier ?i ?c) (increase (carrier-weight ?c) (item-weight ?i))
+            ))
+            (at end (decrease (carrier-speed ?c) (item-weight ?i)))
+        )      
+        
     )
     
     (:durative-action move
-        :parameters (?c - carrier ?lx1 ?ly1 ?lx2 ?ly2 - location)
+        :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
         :duration 
             (= ?duration 1)
         :condition (and 
@@ -62,7 +62,7 @@
                 
                 (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
                 (over all (carrier-at ?c ?lx1 ?ly1))
-                (at end (carrier-at ?lx2 ?ly2))
+                (at end (carrier-at ?c ?lx2 ?ly2))
 
         )
         :effect (and 

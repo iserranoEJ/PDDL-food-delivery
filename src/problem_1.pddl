@@ -2,15 +2,26 @@
     (problem a_problem)
     (:domain delivery)
     ;(:situation <situation_name>) ;deprecated
-    (:objects c -carrier
-        one two - location)
+    (:objects vehicle1 - carrier
+        one two three - location
+        package1 - item)
     (:init
         (adjacent one two) 
         (adjacent two one) 
-
+        (adjacent one three) 
+        (adjacent two three)
+        (adjacent three two) 
+        (adjacent three one)  
+        (item-at package1 one two)
+        (carrier-at vehicle1 two three)
+        (= (fuel-level vehicle1) 100)
+        (= (item-weight package1) 5)
+        (= (carrier-capacity vehicle1) 15)
+        (= (carrier-speed vehicle1) 100)
     )
     (:goal (and
-            (some-goal some-object)
+            (item-at-carrier package1 vehicle1) 
+            (carrier-at vehicle1 three three)
         )
     )
 )
