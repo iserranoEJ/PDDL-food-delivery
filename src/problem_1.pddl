@@ -1,10 +1,13 @@
 (define
     (problem a_problem)
-    (:domain example)
+    (:domain delivery)
     ;(:situation <situation_name>) ;deprecated
-    (:objects some-object)
+    (:objects c -carrier
+        one two - location)
     (:init
-        (some-fact some-object)
+        (adjacent one two) 
+        (adjacent two one) 
+
     )
     (:goal (and
             (some-goal some-object)
