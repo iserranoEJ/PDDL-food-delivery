@@ -14,6 +14,10 @@
         (adjacent three one)  
         (item-at package1 one)
         (carrier-at vehicle1 two)
+        (= (fuel-level vehicle1) 100)
+        (= (item-weight package1) 5)
+        (= (carrier-capacity vehicle1) 15)
+        (= (carrier-speed vehicle1) 100)
     )
     (:goal (and
             (item-at-carrier package1 vehicle1) 
