@@ -1,7 +1,7 @@
 (define
     (problem a_problem)
     (:domain delivery)
-    ;(:situation <situation_name>) ;deprecated
+
     (:objects vehicle1 - carrier
         one two three - location
         package1 - item)

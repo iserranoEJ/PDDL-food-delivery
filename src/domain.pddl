@@ -1,8 +1,3 @@
-    ;move up/down/left/right
-    ;take-item
-    ;drop-item
-    ;implement grid
-
 (define
     (domain delivery)
     (:requirements :equality :strips :typing :numeric-fluents :fluents :durative-actions)
@@ -26,17 +21,20 @@
         (item-weight ?i - item)
         (carrier-weight ?c -carrier)
         (carrier-speed ?c -carrier)
+        
     )
+    
     
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
         :duration 
-            (= ?duration 1)
+            (= ?duration 3 ) ; (/(carrier-speed ?c) 100) )
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
                 (over all (adjacent ?lx1 ?lx2))
                 (over all (adjacent ?ly1 ?ly2))
+
 
         )
         :effect (and 
@@ -54,8 +52,7 @@
             (at start (item-at ?i ?lx ?ly))
             (at start (carrier-at ?c ?lx ?ly))
             (at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
-            (over all (and (carrier-at ?c ?lx ?ly)))
-            (at end (item-at-carrier ?i ?c))
+            (over all (carrier-at ?c ?lx ?ly))
         )
         :effect (and
             (at end  (not(item-at ?i ?lx ?ly))) 
@@ -65,7 +62,7 @@
             (at end (decrease (carrier-speed ?c) (item-weight ?i)))
         )
     )
-    
+
     (:durative-action drop-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
         :duration (= ?duration 3)
@@ -74,15 +71,17 @@
             (at start (carrier-at ?c ?lx ?ly))
             ;(at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
             (over all (and (carrier-at ?c ?lx ?ly)))
-            (at end (item-at ?i ?lx ?ly))
+            
         )
         :effect (and
             (at end (not(item-at-carrier ?i ?c))) 
-            (at end (and(item-at-carrier ?i ?c) 
+            (at end (and(item-at ?i ?c) 
             (decrease (carrier-weight ?c) (item-weight ?i))
             ))
             (at end (increase (carrier-speed ?c) (item-weight ?i)))
         )
     )
+
+
 
 )
