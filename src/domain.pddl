@@ -39,22 +39,22 @@
     ;             (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
 
     
-    ; (:durative-action move
-    ;     :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
-    ;     :condition (and
-    ;         (at start(and 
-	;             (> (fuel-level ?c) 0)
-    ;             (carrier-at ?c ?lx1 ?ly1)
-    ;             (adjacent ?lx1 ?ly1 ?lx2 ?ly2)
-    ;         ))
-    ;     )
-    ;     :effect (and 
-    ;         (at end (and (not(carrier-at ?c ?lx1 ?ly1)) 
-    ;         (carrier-at ?c ?lx2 ?ly2)
-    ;         (decrease (fuel-level ?c) 1) (increase (fuel-used ?c) 1) 
-    ;         ))
-    ;     )
-    ; )
+    (:durative-action move
+        :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
+        :condition (and
+            (at start(and 
+	            (> (fuel-level ?c) 0)
+                (carrier-at ?c ?lx1 ?ly1)
+                (adjacent ?lx1 ?ly1 ?lx2 ?ly2)
+            ))
+        )
+        :effect (and 
+            (at end (and (not(carrier-at ?c ?lx1 ?ly1)) 
+            (carrier-at ?c ?lx2 ?ly2)
+            (decrease (fuel-level ?c) 1) (increase (fuel-used ?c) 1) 
+            ))
+        )
+    )
 
     (:durative-action pick-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
@@ -68,27 +68,28 @@
         )
         :effect (and
             (at end  (not(item-at ?i ?lx ?ly))) 
-            (at end (and(item-at-carrier ?i ?c) (increase (carrier-weight ?c) (item-weight ?i))
+            (at end (and(item-at-carrier ?i ?c) 
+            (increase (carrier-weight ?c) (item-weight ?i))
             ))
             (at end (decrease (carrier-speed ?c) (item-weight ?i)))
         )
     )
 
-    (:action pick-item
-        :parameters (?c - carrier ?i - item ?lx ?ly - location)
+    ; (:action pick-item
+    ;     :parameters (?c - carrier ?i - item ?lx ?ly - location)
         
-        :precondition (and 
-            (item-at ?i ?lx ?ly)
-            (carrier-at ?c ?lx ?ly)
-            (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i))
-            (and (carrier-at ?c ?lx ?ly))
-            (item-at-carrier ?i ?c)
-        )
-        :effect (and
-            (not(item-at ?i ?lx ?ly))
-            (and(item-at-carrier ?i ?c) (increase (carrier-weight ?c) (item-weight ?i)))
-            (decrease (carrier-speed ?c) (item-weight ?i))
-        )
-    )
+    ;     :precondition (and 
+    ;         (item-at ?i ?lx ?ly)
+    ;         (carrier-at ?c ?lx ?ly)
+    ;         (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i))
+    ;         (and (carrier-at ?c ?lx ?ly))
+    ;         (item-at-carrier ?i ?c)
+    ;     )
+    ;     :effect (and
+    ;         (not(item-at ?i ?lx ?ly))
+    ;         (and(item-at-carrier ?i ?c) (increase (carrier-weight ?c) (item-weight ?i)))
+    ;         (decrease (carrier-speed ?c) (item-weight ?i))
+    ;     )
+    ; )
 
 )
