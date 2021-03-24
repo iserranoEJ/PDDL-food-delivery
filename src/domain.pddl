@@ -28,7 +28,7 @@
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
         :duration 
-            (= ?duration 3 ) ; (/(carrier-speed ?c) 100) )
+            (= ?duration (/(carrier-speed ?c) 100) )
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
@@ -69,13 +69,12 @@
         :condition (and 
             (at start (item-at-carrier ?i ?c))
             (at start (carrier-at ?c ?lx ?ly))
-            ;(at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
             (over all (and (carrier-at ?c ?lx ?ly)))
             
         )
         :effect (and
             (at end (not(item-at-carrier ?i ?c))) 
-            (at end (and(item-at ?i ?c) 
+            (at end (and(item-at ?i ?lx ?ly) 
             (decrease (carrier-weight ?c) (item-weight ?i))
             ))
             (at end (increase (carrier-speed ?c) (item-weight ?i)))
