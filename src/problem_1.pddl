@@ -32,6 +32,7 @@
         (= (item-weight package1) 5)
         (= (carrier-capacity vehicle1) 15)
         (= (carrier-speed vehicle1) 100)
+        (= (fuel-used vehicle1) 0)
     )
     (:goal (and
             (item-at-carrier package1 vehicle1) 
