@@ -41,12 +41,13 @@
     
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
-        :condition (and
-            (at start(and 
-	            (> (fuel-level ?c) 0)
-                (carrier-at ?c ?lx1 ?ly1)
-                (adjacent ?lx1 ?ly1 ?lx2 ?ly2)
-            ))
+        :duration 
+            (= ?duration 1)
+        :condition (and 
+	            (at start (> (fuel-level ?c) 0))
+                (at start (carrier-at ?c ?lx1 ?ly1))
+                (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
+
         )
         :effect (and 
             (at end (and (not(carrier-at ?c ?lx1 ?ly1)) 
