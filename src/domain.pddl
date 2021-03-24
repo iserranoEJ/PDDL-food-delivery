@@ -20,11 +20,11 @@
 
     (:functions
         (carrier-capacity ?c - carrier) ;(fuel-capacity ?c-carrier)  
-        (fuel-used ?c-carrier) (fuel-level ?c-carrier)
+        (fuel-used ?c - carrier) (fuel-level ?c - carrier)
         
         ;(fuel-required ?lx1 ?ly1 ?lx2 ?ly2 - location) (total-fuel-used)
         (item-weight ?i - item)
-        (carrier-weight ?c-carrier)
+        (carrier-weight ?c - carrier)
         (carrier-speed ?c - carrier)
     )
 
