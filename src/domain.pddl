@@ -14,7 +14,7 @@
         (item-at ?i - item ?x ?y - location) 
         (carrier-at ?c - carrier ?x ?y - location)
         ;(distance ?lx1 ?ly1 ?lx2 ?ly2 - location)
-        (adjacent ?lx1 ?ly1 ?lx2 ?ly2 - location)
+        (adjacent ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
     )
 
@@ -46,7 +46,8 @@
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
-                (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
+                (over all (adjacent ?lx1 ?lx2))
+                (over all (adjacent ?ly1 ?ly2))
 
         )
         :effect (and 
@@ -76,21 +77,6 @@
         )
     )
 
-    ; (:action pick-item
-    ;     :parameters (?c - carrier ?i - item ?lx ?ly - location)
-        
-    ;     :precondition (and 
-    ;         (item-at ?i ?lx ?ly)
-    ;         (carrier-at ?c ?lx ?ly)
-    ;         (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i))
-    ;         (and (carrier-at ?c ?lx ?ly))
-    ;         (item-at-carrier ?i ?c)
-    ;     )
-    ;     :effect (and
-    ;         (not(item-at ?i ?lx ?ly))
-    ;         (and(item-at-carrier ?i ?c) (increase (carrier-weight ?c) (item-weight ?i)))
-    ;         (decrease (carrier-speed ?c) (item-weight ?i))
-    ;     )
-    ; )
+
 
 )
