@@ -26,18 +26,7 @@
         (item-weight ?i - item)
         (carrier-weight ?c -carrier)
         (carrier-speed ?c -carrier)
-        
     )
-    
-    ; (:durative-action move
-    ;     :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
-    ;     :duration 
-    ;         (= ?duration 1)
-    ;     :condition (and 
-	;             (at start (> (fuel-level ?c) 0))
-    ;             (at start (carrier-at ?c ?lx1 ?ly1))
-    ;             (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
-
     
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
@@ -76,21 +65,22 @@
         )
     )
 
-    ; (:action pick-item
-    ;     :parameters (?c - carrier ?i - item ?lx ?ly - location)
-        
-    ;     :precondition (and 
-    ;         (item-at ?i ?lx ?ly)
-    ;         (carrier-at ?c ?lx ?ly)
-    ;         (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i))
-    ;         (and (carrier-at ?c ?lx ?ly))
-    ;         (item-at-carrier ?i ?c)
-    ;     )
-    ;     :effect (and
-    ;         (not(item-at ?i ?lx ?ly))
-    ;         (and(item-at-carrier ?i ?c) (increase (carrier-weight ?c) (item-weight ?i)))
-    ;         (decrease (carrier-speed ?c) (item-weight ?i))
-    ;     )
-    ; )
-
+    (:durative-action drop-item
+        :parameters (?c - carrier ?i - item ?lx ?ly - location)
+        :duration (= ?duration 3)
+        :condition (and 
+            (at start (item-at-carrier ?i ?c))
+            (at start (carrier-at ?c ?lx ?ly))
+            ;(at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
+            (over all (and (carrier-at ?c ?lx ?ly)))
+            (at end (item-at ?i ?lx ?ly))
+        )
+        :effect (and
+            (at end (not(item-at-carrier ?i ?c))) 
+            (at end (and(item-at-carrier ?i ?c) 
+            (decrease (carrier-weight ?c) (item-weight ?i))
+            ))
+            (at end (increase (carrier-speed ?c) (item-weight ?i)))
+        )
+    )
 )
