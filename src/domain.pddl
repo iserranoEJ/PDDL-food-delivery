@@ -57,7 +57,7 @@
                 
                 (over all (adjacent ?lx1 ?ly1 ?lx2 ?ly2))
                 (over all (carrier-at ?c ?lx1 ?ly1))
-                (at end (carrier-at ?lx2 ?ly2))
+                (at end (carrier-at ?c ?lx2 ?ly2))
 
         )
         :effect (and 
