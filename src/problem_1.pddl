@@ -25,6 +25,7 @@
         (adjacent two three two two)
         (adjacent two three three two)
         (adjacent two three three three)
+        (adjacent three three two three)
 
         (item-at package1 one two)
         (carrier-at vehicle1 two three)
@@ -35,7 +36,7 @@
         (= (fuel-used vehicle1) 0)
     )
     (:goal (and
-            (item-at-carrier package1 vehicle1) 
+            ;(item-at-carrier package1 vehicle1) 
             (carrier-at vehicle1 three three)
         )
     )

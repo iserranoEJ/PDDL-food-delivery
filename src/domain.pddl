@@ -29,7 +29,6 @@
         
     )
 
-
     
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
@@ -42,7 +41,9 @@
 
         )
         :effect (and 
-            (at end (and (not(carrier-at ?c ?lx1 ?ly1)) (carrier-at ?c ?lx2 ?ly2) (decrease (fuel-level ?c) 1) (increase (fuel-used ?c) 1) 
+            (at end (and (not(carrier-at ?c ?lx1 ?ly1)) 
+            (carrier-at ?c ?lx2 ?ly2)
+            (decrease (fuel-level ?c) 1) (increase (fuel-used ?c) 1) 
             ))
         )
     )
