@@ -21,7 +21,7 @@
         (= (carrier-weight vehicle1) 0)
     )
     (:goal (and
-            (item-at package1 three three) 
+            ;(item-at package1 three three) 
             (carrier-at vehicle1 three three)
         )
     )
