@@ -3,14 +3,21 @@
     (:domain delivery)
     ;(:situation <situation_name>) ;deprecated
     (:objects c -carrier
-        one two - location)
+        one two three - location
+        package1 - item)
     (:init
         (adjacent one two) 
         (adjacent two one) 
-
+        (adjacent one three) 
+        (adjacent two three)
+        (adjacent three two) 
+        (adjacent three one)  
+        (item-at package1 one)
+        (carrier-at c two)
     )
     (:goal (and
-            (some-goal some-object)
+            (item-at-carrier package1 c) 
+            (carrier-at three)
         )
     )
 )

@@ -19,7 +19,7 @@
         
     )
 
-  (:functions
+    (:functions
         (carrier-capacity ?c - carrier) (fuel-capacity ?c-carrier)  
         (fuel-used ?c-carrier) (fuel-level ?c-carrier)
         
@@ -27,7 +27,6 @@
         (item-weight ?i - item)
         (carrier-weight ?c-carrier)
         (carrier-speed ?c - carrier)
-        
     )
 
   
@@ -47,7 +46,6 @@
             (at end ((item-at-carrier ?i ?c) (increase(carrier-weight ?c) (item-weight ?i))))
             (decrease (carrier-speed ?c) (item-weight ?i))
             )
-            
         )
     )
     
