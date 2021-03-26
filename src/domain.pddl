@@ -8,7 +8,6 @@
     (:predicates
         (item-at ?i - item ?x ?y - location) 
         (carrier-at ?c - carrier ?x ?y - location)
-        ;(distance ?lx1 ?ly1 ?lx2 ?ly2 - location)
         (adjacent ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
     )
@@ -49,7 +48,8 @@
         :duration (= ?duration 3)
         :condition (and 
             (at start (item-at ?i ?lx ?ly))
-            (at start (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i)))
+            (at start (> (- (carrier-capacity ?c)
+             (carrier-weight ?c)) (item-weight ?i)))
             (over all (carrier-at ?c ?lx ?ly))
         )
         :effect (and
