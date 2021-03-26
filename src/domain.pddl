@@ -51,7 +51,7 @@
                         (> (- (carrier-capacity ?c) (carrier-weight ?c)) (item-weight ?i))
                         (carrier-at ?c ?lx ?ly) 
                         )
-        :effect (and (not(item-at ?i ?lx ?ly))
+        :effect (and ;(not(item-at ?i ?lx ?ly))
                 (item-at-carrier ?i ?c)
                 (decrease (carrier-speed ?c) (item-weight ?i))
                 (increase (carrier-weight ?c) (item-weight ?i))
