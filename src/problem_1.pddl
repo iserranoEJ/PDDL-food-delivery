@@ -7,8 +7,11 @@
         package1 - item)
     (:init
         (adjacent one two)
+        (adjacent one one)
         (adjacent two one)
+        (adjacent two two)
         (adjacent two three)
+        (adjacent three three)
         (adjacent three two)
 
         (item-at package1 one two)
@@ -21,10 +24,10 @@
         (= (carrier-weight vehicle1) 0)
     )
     (:goal (and
-            ;(carrier-at vehicle1 one two)
-            ;(item-at-carrier package1 vehicle1)
+            (carrier-at vehicle1 one two)
+            (item-at-carrier package1 vehicle1)
             (carrier-at vehicle1 three three)
-            ;(item-at package1 three three)
+            (item-at package1 three three)
         )
     )
 )
