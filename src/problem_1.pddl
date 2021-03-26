@@ -22,9 +22,9 @@
     )
     (:goal (and
             (carrier-at vehicle1 one two)
-            (item-at-carrier package1 vehicle1)
-            (carrier-at vehicle1 three three)
-            (item-at package1 three three)
+            ;(item-at-carrier package1 vehicle1)
+            ;(carrier-at vehicle1 three three)
+            ;(item-at package1 three three)
         )
     )
 )
