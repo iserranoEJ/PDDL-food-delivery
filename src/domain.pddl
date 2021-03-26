@@ -32,8 +32,8 @@
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
-                (over all (adjacent ?lx1 ?lx2))
-                (over all (adjacent ?ly1 ?ly2))
+                (at start (adjacent ?lx1 ?lx2))
+                (at start  (adjacent ?ly1 ?ly2))
 
 
         )
