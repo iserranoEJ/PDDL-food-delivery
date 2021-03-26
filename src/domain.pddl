@@ -12,10 +12,10 @@
         (item-at-carrier ?i - item ?c - carrier)
     )
 
-  (:functions
+    (:functions
         (carrier-capacity ?c -carrier) (fuel-capacity ?c -carrier)  
         (fuel-used ?c -carrier) (fuel-level ?c -carrier)
-        (carrier-size ?c)
+        (carrier-size ?c -carrier)
         (total-fuel-used)
         (item-weight ?i - item)
         (carrier-weight ?c -carrier)
