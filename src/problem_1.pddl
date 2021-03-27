@@ -60,7 +60,7 @@
 
             ;(carrier-at car1 three three)
             (item-at package1 three three)
-            (item-at package2 one two)
+            (item-at package2 six two)
         )
     )
     (:metric minimize (total-fuel-used))
