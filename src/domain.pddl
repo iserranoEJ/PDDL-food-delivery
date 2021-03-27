@@ -32,7 +32,7 @@
             (= ?duration (/(carrier-speed ?c) 50) )
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
-                (over all (carrier-at ?c ?lx1 ?ly1))
+                (at start (carrier-at ?c ?lx1 ?ly1))
                 (at start (adjacent ?c ?lx1 ?lx2))
                 (at start  (adjacent ?c ?ly1 ?ly2))
 
