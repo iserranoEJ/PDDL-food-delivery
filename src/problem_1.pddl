@@ -8,18 +8,25 @@
         package1  package2 - item)
     (:init
         (adjacent car1 one two)
+        (adjacent car1 one one)
         (adjacent car1 two one)
+        (adjacent car1 two two)
         (adjacent car1 two three)
+        (adjacent car1 three three)
         (adjacent car1 three two)
         (adjacent car1 three four)
         (adjacent car1 four three)
 
         (adjacent motorbike1 six five)
         (adjacent motorbike1 five six)
+        (adjacent motorbike1 five five)
+        (adjacent motorbike1 six six)
         (adjacent motorbike1 four five)
         (adjacent motorbike1 five four) 
+        (adjacent motorbike1 four four)
         (adjacent motorbike1 four three)
         (adjacent motorbike1 three four)
+        (adjacent motorbike1 three three)
 
         
         (carrier-at car1 one one)
@@ -29,7 +36,7 @@
         (= (item-weight package1) 2)
         (= (item-weight package2) 5)
         (item-at package1 three four)
-        (item-at package2 four six)
+        (item-at package2 four one)
         
         ;Car1
         (= (item-pick-speed car1) 2)
