@@ -54,7 +54,7 @@
     (:goal (and
 
             ;(carrier-at car1 three three)
-            (item-at package1 two four)
+            (item-at package1 four three)
         )
     )
     (:metric minimize (total-fuel-used))
