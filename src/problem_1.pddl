@@ -5,33 +5,38 @@
     (:objects car1 -car 
         motorbike1 -motorbike
         one two three four five six - location
-        package1 - item)
+        package1  package2 - item)
     (:init
-        (adjacent one two)
-        (adjacent one one)
-        (adjacent two one)
-        (adjacent two two)
-        (adjacent two three)
-        (adjacent three three)
-        (adjacent three two)
+        (adjacent car1 one two)
+        (adjacent car1 one one)
+        (adjacent car1 two one)
+        (adjacent car1 two two)
+        (adjacent car1 two three)
+        (adjacent car1 three three)
+        (adjacent car1 three two)
+        (adjacent car1 three four)
+        (adjacent car1 four three)
 
-        (adjacent2 six five)
-        (adjacent2 five six)
-        (adjacent2 five five)
-        (adjacent2 six six)
-        (adjacent2 four five)
-        (adjacent2 five four)
-        (adjacent2 four four)
-        (adjacent2 four three)
-        (adjacent2 three four)
-        (adjacent2 three three)
+        (adjacent motorbike1 six five)
+        (adjacent motorbike1 five six)
+        (adjacent motorbike1 five five)
+        (adjacent motorbike1 six six)
+        (adjacent motorbike1 four five)
+        (adjacent motorbike1 five four) 
+        (adjacent motorbike1 four four)
+        (adjacent motorbike1 four three)
+        (adjacent motorbike1 three four)
+        (adjacent motorbike1 three three)
 
-        (item-at package1 three four)
+        
         (carrier-at car1 one one)
         (carrier-at motorbike1 six six)
 
         ;Items
         (= (item-weight package1) 2)
+        (= (item-weight package2) 5)
+        (item-at package1 three four)
+        (item-at package2 three five)
         
         ;Car1
         (= (item-pick-speed car1) 2)
@@ -54,7 +59,8 @@
     (:goal (and
 
             ;(carrier-at car1 three three)
-            (item-at package1 four three)
+            (item-at package1 three three)
+            (item-at package2 one two)
         )
     )
     (:metric minimize (total-fuel-used))
