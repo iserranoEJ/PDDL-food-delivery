@@ -36,7 +36,7 @@
         (= (item-weight package1) 2)
         (= (item-weight package2) 5)
         (item-at package1 three four)
-        (item-at package2 three five)
+        (item-at package2 four six)
         
         ;Car1
         (= (item-pick-speed car1) 2)
@@ -48,8 +48,8 @@
         (= (carrier-weight car1) 0)
 
         ;Motorbike1
-        (= (item-pick-speed motorbike1) 1)
-        (= (item-drop-speed motorbike1) 1)
+        (= (item-pick-speed motorbike1) 2)
+        (= (item-drop-speed motorbike1)2)
         (= (fuel-level motorbike1) 8)
         (= (carrier-capacity motorbike1) 5)
         (= (carrier-speed motorbike1) 70)
