@@ -51,15 +51,13 @@
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
         :duration (= ?duration (item-pick-speed ?c))
         :condition (and 
-            (at start (item-at ?i ?lx ?ly))
             (at start (> (- (carrier-capacity ?c)
             (carrier-weight ?c)) (item-weight ?i)))
             (over all (item-at ?i ?lx ?ly))
             (over all (carrier-at ?c ?lx ?ly))
         )
         :effect (and
-            (at end  (not(item-at ?i ?lx ?ly))) 
-            (at end (and(item-at-carrier ?i ?c) 
+            (at end (and (not(item-at ?i ?lx ?ly)) (item-at-carrier ?i ?c) 
             (increase (carrier-weight ?c) (item-weight ?i))
             ))
             (at end (decrease (carrier-speed ?c) (item-weight ?i)))
@@ -70,13 +68,13 @@
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
         :duration (= ?duration (item-drop-speed ?c))
         :condition (and 
-            (at start (item-at-carrier ?i ?c))
-            (at start (carrier-at ?c ?lx ?ly))
+            (over all  (item-at-carrier ?i ?c))
+            (over all(carrier-at ?c ?lx ?ly))
             (over all (and (carrier-at ?c ?lx ?ly)))
             
         )
         :effect (and
-            (at end (not(item-at-carrier ?i ?c))) 
+            (at start  (not(item-at-carrier ?i ?c))) 
             (at end (and(item-at ?i ?lx ?ly) 
             (decrease (carrier-weight ?c) (item-weight ?i))
             ))
