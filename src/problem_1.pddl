@@ -2,8 +2,9 @@
     (problem a_problem)
     (:domain delivery)
 
-    (:objects vehicle1 - carrier
-        one two three - location
+    (:objects car1 -car 
+        motorbike1 -motorbike
+        one two three four five six - location
         package1 - item)
     (:init
         (adjacent one two)
@@ -14,21 +15,44 @@
         (adjacent three three)
         (adjacent three two)
 
+        (adjacent2 six five)
+        (adjacent2 five six)
+        (adjacent2 five five)
+        (adjacent2 six six)
+        (adjacent2 four five)
+        (adjacent2 five four)
+        (adjacent2 four four)
+        (adjacent2 four three)
+        (adjacent2 three four)
+        (adjacent2 three three)
+
         (item-at package1 one two)
-        (carrier-at vehicle1 one one);
-        (= (carrier-size vehicle1) 1)
-        (= (item-pick-speed vehicle1) 2);
-        (= (item-drop-speed vehicle1) 2);
-        (= (fuel-level vehicle1) 10);
-        (= (item-weight package1) 1)
-        (= (carrier-capacity vehicle1) 15);
-        (= (carrier-speed vehicle1) 50);
-        (= (fuel-used vehicle1) 0)
-        (= (carrier-weight vehicle1) 0)
+        (carrier-at car1 one one)
+
+        ;Items
+        (= (item-weight package1) 2)
+        
+        ;Car1
+        (= (item-pick-speed car1) 2)
+        (= (item-drop-speed car1) 2)
+        (= (fuel-level car1) 16)
+        (= (carrier-capacity car1) 15)
+        (= (carrier-speed car1) 50)
+        (= (fuel-used car1) 0)
+        (= (carrier-weight car1) 0)
+
+        ;Motorbike1
+        (= (item-pick-speed motorbike1) 1)
+        (= (item-drop-speed motorbike1) 1)
+        (= (fuel-level motorbike1) 8)
+        (= (carrier-capacity motorbike1) 5)
+        (= (carrier-speed motorbike1) 70)
+        (= (fuel-used motorbike1) 0)
+        (= (carrier-weight motorbike1) 0)
     )
     (:goal (and
 
-            ;(carrier-at vehicle1 three three)
+            ;(carrier-at car1 three three)
             (item-at package1 three three)
         )
     )
