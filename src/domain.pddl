@@ -26,13 +26,13 @@
         
     )
         
-    (:durative-action move-car
+    (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
         :duration 
             (= ?duration (/(carrier-speed ?c) 50) )
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
-                (at start (carrier-at ?c ?lx1 ?ly1))
+                (over all (carrier-at ?c ?lx1 ?ly1))
                 (at start (adjacent ?c ?lx1 ?lx2))
                 (at start  (adjacent ?c ?ly1 ?ly2))
 
