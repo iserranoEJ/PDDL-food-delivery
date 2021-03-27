@@ -26,8 +26,9 @@
         (adjacent2 three four)
         (adjacent2 three three)
 
-        (item-at package1 one two)
+        (item-at package1 three four)
         (carrier-at car1 one one)
+        (carrier-at motorbike1 six six)
 
         ;Items
         (= (item-weight package1) 2)
@@ -53,7 +54,7 @@
     (:goal (and
 
             ;(carrier-at car1 three three)
-            (item-at package1 three three)
+            (item-at package1 two four)
         )
     )
     (:metric minimize (total-fuel-used))
