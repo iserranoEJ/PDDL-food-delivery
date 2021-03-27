@@ -2,8 +2,7 @@
     (domain delivery)
     (:requirements :equality :strips :typing :numeric-fluents :fluents :durative-actions)
 
-    (:types carrier location item)
-    (:types car motorbike - carrier)
+    (:types carrier location item car -carrier motorbike -carrier)
     
     ;TODO only bike roads and only car roads
     (:predicates
