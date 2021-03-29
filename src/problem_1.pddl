@@ -191,7 +191,7 @@
         ;Items
         (= (item-weight package1) 2)
         (= (item-weight package2) 5)
-        (item-at package1 twelve fifteen)
+        (item-at package1 twelve thirteen)
         (item-at package2 twenty twenty)
         
         ;Car1

@@ -73,7 +73,7 @@
         (= (item-weight package1) 2)
         (= (item-weight package2) 2)
         (item-at package1 three four)
-        (item-at package2 four one)
+        (item-at package2 four five)
         
         ;Car1
         (= (item-pick-speed car1) 2)
