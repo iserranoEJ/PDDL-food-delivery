@@ -71,9 +71,9 @@
 
         ;Items
         (= (item-weight package1) 2)
-        (= (item-weight package2) 5)
+        (= (item-weight package2) 2)
         (item-at package1 three four)
-        ;(item-at package2 four one)
+        (item-at package2 four one)
         
         ;Car1
         (= (item-pick-speed car1) 2)
@@ -87,7 +87,7 @@
     (:goal (and
 
             ;(carrier-at car1 three three)
-            (item-at package1 three three)
+            (item-at package1 twenty twenty)
             (item-at package2 thirteen fourteen)
         )
     )
