@@ -191,8 +191,8 @@
         ;Items
         (= (item-weight package1) 2)
         (= (item-weight package2) 5)
-        (item-at package1 twelve thirteen)
-        (item-at package2 twenty twenty)
+        (item-at package1 two two)
+        (item-at package2 seven seven)
         
         ;Car1
         (= (item-pick-speed car1) 2)
@@ -216,7 +216,7 @@
 
             ;(carrier-at car1 three three)
             (item-at package1 three three)
-            (item-at package2 eighteen seventeen)
+            (item-at package2 eight nine)
         )
     )
     (:metric minimize (total-fuel-used))
