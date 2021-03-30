@@ -223,7 +223,7 @@
                 (item-at package1 four four)
             )
 
-            (item-at package2 nine ten)
+            (item-at package2 twentyfour twentyfive)
         )
     )
     (:metric minimize (total-fuel-used))
