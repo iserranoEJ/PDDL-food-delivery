@@ -176,7 +176,7 @@
         (item-at package4 fifteen fifteen)
         (item-at package5 four five)
         (item-at package6 twenty twenty)
-        (item-at package7 four four)
+        (item-at package7 one one)
         
         ;Car1
         (= (item-pick-speed car1) 2)
