@@ -87,13 +87,13 @@
     )
 
     (:durative-action handover-item
-        :parameters (?c1 ?c2 - carrier ?i -item ?lx ?ly - location)
+        :parameters (?c1 ?c2 - carrier ?i - item ?lx ?ly - location)
         :duration (= ?duration (item-handover-speed ?c1))
         :condition (and
-        (over all  (carrier-at ?c1 ?lx ?ly))
-        (over all (carrier-at ?c2 ?lx ?ly))
-        (at start (>(-(carrier-capacity ?c2)(carrier-weight ?c2))(item-weight ?i)))
-        (over all (item-at-carrier ?i ?c1))
+            (over all  (carrier-at ?c1 ?lx ?ly))
+            (over all (carrier-at ?c2 ?lx ?ly))
+            (at start (>(-(carrier-capacity ?c2)(carrier-weight ?c2))(item-weight ?i)))
+            (over all (item-at-carrier ?i ?c1))
         )
         :effect (and 
             (at end (increase (carrier-weight ?c2) (item-weight ?i)))
