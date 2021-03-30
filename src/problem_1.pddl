@@ -190,16 +190,16 @@
 
         ;Items
         (= (item-weight package1) 2)
-        (= (item-weight package2) 5)
+        (= (item-weight package2) 2)
         (item-at package1 two two)
         (item-vip package1)
-        (item-at package2 seven seven)
+        (item-at package2 fourteen thirteen)
         
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
         (= (item-handover-speed car1)3)
-        (= (fuel-level car1) 16)
+        (= (fuel-level car1) 200)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
         (= (fuel-used car1) 0)
@@ -208,7 +208,7 @@
         ;Motorbike1
         (= (item-pick-speed motorbike1) 2)
         (= (item-drop-speed motorbike1)2)
-        (= (fuel-level motorbike1) 8)
+        (= (fuel-level motorbike1) 100)
         (= (carrier-capacity motorbike1) 5)
         (= (carrier-speed motorbike1) 70)
         (= (fuel-used motorbike1) 0)

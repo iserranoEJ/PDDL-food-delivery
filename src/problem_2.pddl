@@ -3,12 +3,12 @@
     (:domain delivery)
 
     (:objects 
-        car1 car2 -car 
+        car1 car2 car3 -car 
         motorbike1 motorbike2 motorbike3 -motorbike
         one two three four five six seven eight nine ten eleven twelve thirteen -location
         fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone -location
         twentytwo twentythree twentyfour twentyfive - location
-        package1  package2 package3 package4 package5 package6 - item)
+        package1  package2 package3 package4 package5 package6 package7 - item)
     (:init
         ;scope of car1
         (adjacent car1 one two)
@@ -93,13 +93,74 @@
         (adjacent motorbike3 twenty nineteen)
         (adjacent motorbike3 nineteen nineteen)
         (adjacent motorbike3 twenty twenty)
+
+        ;scope of car3
+        (adjacent car3 one two)
+        (adjacent car3 two one)
+        (adjacent car3 one one)
+        (adjacent car3 two three)
+        (adjacent car3 three two)
+        (adjacent car3 two two)
+        (adjacent car3 three four)
+        (adjacent car3 four three)
+        (adjacent car3 three three)
+        (adjacent car3 four five)
+        (adjacent car3 five four)
+        (adjacent car3 four four)
+        (adjacent car3 five six)
+        (adjacent car3 six five)
+        (adjacent car3 five five)
+        (adjacent car3 six seven)
+        (adjacent car3 seven six)
+        (adjacent car3 six six)
+        (adjacent car3 seven eight)
+        (adjacent car3 eight seven)
+        (adjacent car3 seven seven)
+        (adjacent car3 eight nine)
+        (adjacent car3 nine eight)
+        (adjacent car3 eight eight)
+        (adjacent car3 nine ten)
+        (adjacent car3 ten nine)
+        (adjacent car3 nine nine)
+        (adjacent car3 ten eleven)
+        (adjacent car3 eleven ten)
+        (adjacent car3 ten ten)
+        (adjacent car3 eleven twelve)
+        (adjacent car3 twelve eleven)
+        (adjacent car3 eleven eleven)
+        (adjacent car3 twelve thirteen)
+        (adjacent car3 thirteen twelve)
+        (adjacent car3 twelve twelve)
+        (adjacent car3 thirteen fourteen)
+        (adjacent car3 fourteen thirteen)
+        (adjacent car3 thirteen thirteen)
+        (adjacent car3 fourteen fifteen)
+        (adjacent car3 fifteen fourteen)
+        (adjacent car3 fourteen fourteen)
+        (adjacent car3 fifteen sixteen)
+        (adjacent car3 sixteen fifteen)
+        (adjacent car3 fifteen fifteen)
+        (adjacent car3 sixteen seventeen)
+        (adjacent car3 seventeen sixteen)
+        (adjacent car3 sixteen sixteen)
+        (adjacent car3 seventeen eighteen)
+        (adjacent car3 eighteen seventeen)
+        (adjacent car3 seventeen seventeen)
+        (adjacent car3 eighteen nineteen)
+        (adjacent car3 nineteen eighteen)
+        (adjacent car3 eighteen eighteen)
+        (adjacent car3 nineteen twenty)
+        (adjacent car3 twenty nineteen)
+        (adjacent car3 nineteen nineteen)
+        (adjacent car3 twenty twenty)
         
-        ;initial locations
+        ;initial loca3ions
         (carrier-at car1 one one)
         (carrier-at car2 five five)
         (carrier-at motorbike1 ten ten)
         (carrier-at motorbike2 fifteen fifteen)
         (carrier-at motorbike3 nineteen twenty)
+        (carrier-at car3 fifteen fifteen)
 
         ;Items
         (= (item-weight package1) 2)
@@ -108,17 +169,19 @@
         (= (item-weight package4) 2)
         (= (item-weight package5) 2)
         (= (item-weight package6) 2)
+        (= (item-weight package7) 2)
         (item-at package1 three four)
         (item-at package2 seven six)
         (item-at package3 eleven twelve)
         (item-at package4 fifteen fifteen)
         (item-at package5 four five)
         (item-at package6 twenty twenty)
+        (item-at package7 four four)
         
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
-        (= (fuel-level car1) 16)
+        (= (fuel-level car1) 50)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
         (= (fuel-used car1) 0)
@@ -127,16 +190,25 @@
         ;Car2
         (= (item-pick-speed car2) 2)
         (= (item-drop-speed car2) 2)
-        (= (fuel-level car2) 16)
+        (= (fuel-level car2) 50)
         (= (carrier-capacity car2) 15)
         (= (carrier-speed car2) 50)
         (= (fuel-used car2) 0)
         (= (carrier-weight car2) 0)
 
+        ;Car3
+        (= (item-pick-speed car3) 2)
+        (= (item-drop-speed car3) 2)
+        (= (fuel-level car3) 200)
+        (= (carrier-capacity car3) 15)
+        (= (carrier-speed car3) 50)
+        (= (fuel-used car3) 0)
+        (= (carrier-weight car3) 0)
+
         ;Motorbike1
         (= (item-pick-speed motorbike1) 2)
         (= (item-drop-speed motorbike1)2)
-        (= (fuel-level motorbike1) 8)
+        (= (fuel-level motorbike1) 25)
         (= (carrier-capacity motorbike1) 5)
         (= (carrier-speed motorbike1) 70)
         (= (fuel-used motorbike1) 0)
@@ -145,7 +217,7 @@
         ;Motorbike2
         (= (item-pick-speed motorbike2) 2)
         (= (item-drop-speed motorbike2)2)
-        (= (fuel-level motorbike2) 8)
+        (= (fuel-level motorbike2) 25)
         (= (carrier-capacity motorbike2) 5)
         (= (carrier-speed motorbike2) 70)
         (= (fuel-used motorbike2) 0)
@@ -169,6 +241,7 @@
             (item-at package4 twenty nineteen)
             (item-at package5 one one)
             (item-at package6 fifteen sixteen)
+            (item-at package7 five five)
         )
     )
     (:metric minimize (total-fuel-used))
