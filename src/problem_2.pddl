@@ -169,6 +169,7 @@
         (= (item-weight package4) 2)
         (= (item-weight package5) 2)
         (= (item-weight package6) 2)
+        (= (item-weight package7) 2)
         (item-at package1 three four)
         (item-at package2 seven six)
         (item-at package3 eleven twelve)
@@ -180,7 +181,7 @@
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
-        (= (fuel-level car1) 16)
+        (= (fuel-level car1) 50)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
         (= (fuel-used car1) 0)
@@ -189,7 +190,7 @@
         ;Car2
         (= (item-pick-speed car2) 2)
         (= (item-drop-speed car2) 2)
-        (= (fuel-level car2) 16)
+        (= (fuel-level car2) 50)
         (= (carrier-capacity car2) 15)
         (= (carrier-speed car2) 50)
         (= (fuel-used car2) 0)
@@ -207,7 +208,7 @@
         ;Motorbike1
         (= (item-pick-speed motorbike1) 2)
         (= (item-drop-speed motorbike1)2)
-        (= (fuel-level motorbike1) 8)
+        (= (fuel-level motorbike1) 25)
         (= (carrier-capacity motorbike1) 5)
         (= (carrier-speed motorbike1) 70)
         (= (fuel-used motorbike1) 0)
@@ -216,7 +217,7 @@
         ;Motorbike2
         (= (item-pick-speed motorbike2) 2)
         (= (item-drop-speed motorbike2)2)
-        (= (fuel-level motorbike2) 8)
+        (= (fuel-level motorbike2) 25)
         (= (carrier-capacity motorbike2) 5)
         (= (carrier-speed motorbike2) 70)
         (= (fuel-used motorbike2) 0)
