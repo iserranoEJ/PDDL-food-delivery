@@ -245,4 +245,5 @@
         )
     )
     (:metric minimize (total-fuel-used))
+    (:metric minimize (distance-travelled))
 )

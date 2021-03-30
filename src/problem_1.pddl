@@ -197,8 +197,8 @@
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
-        (= (item-handover-speed car1)2)
-        (= (item-handover-speed car1)3)
+        ;(= (item-handover-speed car1)2)
+        ;(= (item-handover-speed car1)3)
         (= (fuel-level car1) 200)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
@@ -208,23 +208,17 @@
         ;Motorbike1
         (= (item-pick-speed motorbike1) 2)
         (= (item-drop-speed motorbike1)2)
-        (= (item-handover-speed motorbike1)2)
+        ;(= (item-handover-speed motorbike1)2)
         (= (fuel-level motorbike1) 100)
         (= (carrier-capacity motorbike1)5)
         (= (carrier-speed motorbike1)70)
         (= (fuel-used motorbike1)0)
         (= (carrier-weight motorbike1)0)
     )
-    (:goal (and
-
-            ;(carrier-at car1 three three)
-            
-            (preference VIP-Items
+    (:goal  (and              
                 (item-at package1 four four)
+                (item-at package2 twentyfour twentyfive)
             )
-
-            (item-at package2 twentyfour twentyfive)
-        )
     )
     (:metric minimize (total-fuel-used))
     (:metric minimize (distance-travelled))

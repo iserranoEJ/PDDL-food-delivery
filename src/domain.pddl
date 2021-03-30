@@ -16,15 +16,17 @@
     )
 
     (:functions
-        (carrier-capacity ?c -carrier) (fuel-capacity ?c -carrier)  
-        (fuel-used ?c -carrier) (fuel-level ?c -carrier)
+        (carrier-capacity ?c -carrier) 
+        ;(fuel-capacity ?c -carrier)  
+        (fuel-used ?c -carrier) 
+        (fuel-level ?c -carrier)
         (total-fuel-used)
         (item-weight ?i - item)
         (carrier-weight ?c -carrier)
         (carrier-speed ?c -carrier)
         (item-pick-speed ?c -carrier)
         (item-drop-speed ?c -carrier)
-        (item-handover-speed ?c - carrier)
+        ;(item-handover-speed ?c - carrier)
         (distance-travelled)
         
     )
