@@ -192,11 +192,13 @@
         (= (item-weight package1) 2)
         (= (item-weight package2) 5)
         (item-at package1 two two)
+        (item-vip package1)
         (item-at package2 seven seven)
         
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
+        (= (item-handover-speed car1)3)
         (= (fuel-level car1) 16)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
@@ -215,9 +217,18 @@
     (:goal (and
 
             ;(carrier-at car1 three three)
-            (item-at package1 four four)
+            
+            (preference VIP-Items
+                (item-at package1 four four)
+            )
+
             (item-at package2 nine ten)
         )
     )
     (:metric minimize (total-fuel-used))
+    (:metric minimize (distance-travelled))
+
+    ;within keyword for time cosntraint
+    ;preference
+    ;hold-during 20 30 (at lorry1 lorrycarpark)
 )

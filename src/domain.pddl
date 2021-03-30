@@ -1,17 +1,18 @@
 (define
     (domain delivery)
-    (:requirements :equality :strips :typing :numeric-fluents :fluents :durative-actions)
+    (:requirements :equality :strips :typing :numeric-fluents :fluents :durative-actions :preferences)
 
     (:types 
     carrier location item -object
     car motorbike -carrier)
     
-    ;TODO only bike roads and only car roads
     (:predicates
         (item-at ?i - item ?x ?y - location) 
         (carrier-at ?c - carrier ?x ?y - location)
-        (adjacent ?c -carrier ?coor1 ?coor2 - location) ; adjacent takes another parameter equal to the type of vehicle adjacent(car1 one one)
+        (adjacent ?c -carrier ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
+        (item-vip ?i -item)
+        
     )
 
     (:functions
@@ -23,13 +24,15 @@
         (carrier-speed ?c -carrier)
         (item-pick-speed ?c -carrier)
         (item-drop-speed ?c -carrier)
+        (item-handover-speed ?c - carrier)
+        (distance-travelled)
         
     )
         
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
         :duration 
-            (= ?duration 1);(/(carrier-speed ?c) 50) )
+            (= ?duration (/(carrier-speed ?c) 50) )
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
@@ -42,14 +45,15 @@
             (carrier-at ?c ?lx2 ?ly2)
             (decrease (fuel-level ?c) 1) (increase (fuel-used ?c) 1)
             (increase (total-fuel-used) 1)
+            (increase (distance-travelled) 1))
             ))
         )
-    )
+    
     
 
     (:durative-action pick-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
-        :duration (= ?duration 1); (item-pick-speed ?c))
+        :duration (= ?duration (item-pick-speed ?c))
         :condition (and 
             (at start (> (- (carrier-capacity ?c)
             (carrier-weight ?c)) (item-weight ?i)))
@@ -66,7 +70,7 @@
 
     (:durative-action drop-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
-        :duration (= ?duration 1);(item-drop-speed ?c))
+        :duration (= ?duration (item-drop-speed ?c))
         :condition (and 
             (over all  (item-at-carrier ?i ?c))
             (over all(carrier-at ?c ?lx ?ly))
@@ -79,6 +83,25 @@
             (decrease (carrier-weight ?c) (item-weight ?i))
             ))
             (at end (increase (carrier-speed ?c) (item-weight ?i)))
+        )
+    )
+
+    (:durative-action handover-item
+        :parameters (?c1 ?c2 - carrier ?i -item ?lx ?ly - location)
+        :duration (= ?duration (item-handover-speed ?c1))
+        :condition (and
+        (over all  (carrier-at ?c1 ?lx ?ly))
+        (over all (carrier-at ?c2 ?lx ?ly))
+        (at start (>(-(carrier-capacity ?c2)(carrier-weight ?c2))(item-weight ?i)))
+        (over all (item-at-carrier ?i ?c1))
+        )
+        :effect (and 
+            (at end (increase (carrier-weight ?c2) (item-weight ?i)))
+            (at end (decrease (carrier-weight ?c1) (item-weight ?i)))
+            (at end (increase (carrier-speed ?c1) (item-weight ?i)))
+            (at end (decrease (carrier-speed ?c2) (item-weight ?i)))
+            (at end (not (item-at-carrier ?i ?c1)))
+            (at end (item-at-carrier ?i ?c2))
         )
     )
 
