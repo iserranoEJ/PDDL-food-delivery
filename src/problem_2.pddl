@@ -4,12 +4,13 @@
 
     (:objects 
         car1 car2 -car 
-        motorbike1 motorbike2 -motorbike
+        motorbike1 motorbike2 motorbike3-motorbike
         one two three four five six seven eight nine ten eleven twelve thirteen -location
         fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone -location
         twentytwo twentythree twentyfour twentyfive - location
-        package1  package2 package3 package4 - item)
+        package1  package2 package3 package4 package5 package6 - item)
     (:init
+        ;scope of car1
         (adjacent car1 one two)
         (adjacent car1 two one)
         (adjacent car1 one one)
@@ -22,7 +23,8 @@
         (adjacent car1 four five)
         (adjacent car1 five four)
         (adjacent car1 four four)
-
+        
+        ;scope of car2
         (adjacent car2 five six)
         (adjacent car2 six five)
         (adjacent car2 five five)
@@ -39,6 +41,7 @@
         (adjacent car2 ten nine)
         (adjacent car2 nine nine)
 
+        ;scope of motorbike1
         (adjacent motorbike1 ten eleven)
         (adjacent motorbike1 eleven ten)
         (adjacent motorbike1 ten ten)
@@ -55,6 +58,7 @@
         (adjacent motorbike1 fifteen fourteen)
         (adjacent motorbike1 fourteen fourteen)
 
+        ;scope of motorbike2
         (adjacent motorbike2 fifteen sixteen)
         (adjacent motorbike2 sixteen fifteen)
         (adjacent motorbike2 fifteen fifteen)
@@ -71,21 +75,45 @@
         (adjacent motorbike2 twenty nineteen)
         (adjacent motorbike2 nineteen nineteen)
         (adjacent motorbike2 twenty twenty)
+
+        ;scope of motorbike3
+        (adjacent motorbike3 fifteen sixteen)
+        (adjacent motorbike3 sixteen fifteen)
+        (adjacent motorbike3 fifteen fifteen)
+        (adjacent motorbike3 sixteen seventeen)
+        (adjacent motorbike3 seventeen sixteen)
+        (adjacent motorbike3 sixteen sixteen)
+        (adjacent motorbike3 seventeen eighteen)
+        (adjacent motorbike3 eighteen seventeen)
+        (adjacent motorbike3 seventeen seventeen)
+        (adjacent motorbike3 eighteen nineteen)
+        (adjacent motorbike3 nineteen eighteen)
+        (adjacent motorbike3 eighteen eighteen)
+        (adjacent motorbike3 nineteen twenty)
+        (adjacent motorbike3 twenty nineteen)
+        (adjacent motorbike3 nineteen nineteen)
+        (adjacent motorbike3 twenty twenty)
         
+        ;initial locations
         (carrier-at car1 one one)
         (carrier-at car2 five five)
         (carrier-at motorbike1 ten ten)
         (carrier-at motorbike2 fifteen fifteen)
+        (carrier-at motorbike3 nineteen twenty)
 
         ;Items
         (= (item-weight package1) 2)
         (= (item-weight package2) 2)
         (= (item-weight package3) 2)
         (= (item-weight package4) 2)
+        (= (item-weight package5) 2)
+        (= (item-weight package6) 2)
         (item-at package1 three four)
         (item-at package2 seven six)
         (item-at package3 eleven twelve)
         (item-at package4 fifteen fifteen)
+        (item-at package5 four five)
+        (item-at package6 twenty twenty)
         
         ;Car1
         (= (item-pick-speed car1) 2)
@@ -122,6 +150,15 @@
         (= (carrier-speed motorbike2) 70)
         (= (fuel-used motorbike2) 0)
         (= (carrier-weight motorbike2) 0)
+
+        ;Motorbike3
+        (= (item-pick-speed motorbike3) 2)
+        (= (item-drop-speed motorbike3)2)
+        (= (fuel-level motorbike3) 8)
+        (= (carrier-capacity motorbike3) 5)
+        (= (carrier-speed motorbike3) 70)
+        (= (fuel-used motorbike3) 0)
+        (= (carrier-weight motorbike3) 0)
     )
     (:goal (and
 
@@ -130,6 +167,8 @@
             (item-at package2 eight eight)
             (item-at package3 fourteen fifteen)
             (item-at package4 twenty nineteen)
+            (item-at package5 one one)
+            (item-at package6 fifteen sixteen)
         )
     )
     (:metric minimize (total-fuel-used))
