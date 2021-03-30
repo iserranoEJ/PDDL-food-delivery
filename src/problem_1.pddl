@@ -192,7 +192,6 @@
         (= (item-weight package1) 2)
         (= (item-weight package2) 2)
         (item-at package1 two two)
-        (item-vip package1)
         (item-at package2 fourteen thirteen)
         
         ;Car1

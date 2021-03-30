@@ -11,7 +11,7 @@
         (carrier-at ?c - carrier ?x ?y - location)
         (adjacent ?c -carrier ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
-        (item-vip ?i -item)
+
         
     )
 
