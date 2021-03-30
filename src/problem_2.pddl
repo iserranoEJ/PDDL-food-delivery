@@ -4,7 +4,6 @@
 
     (:objects 
         car1 car2 car3 -car 
-        dbjdbvjbadjkvb
         motorbike1 motorbike2 motorbike3 -motorbike
         one two three four five six seven eight nine ten eleven twelve thirteen -location
         fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone -location
