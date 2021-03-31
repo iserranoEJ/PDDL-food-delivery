@@ -181,7 +181,7 @@
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
-        (= (fuel-level car1) 50)
+        (= (fuel-level car1) 500)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
         (= (fuel-used car1) 0)
@@ -190,7 +190,7 @@
         ;Car2
         (= (item-pick-speed car2) 2)
         (= (item-drop-speed car2) 2)
-        (= (fuel-level car2) 50)
+        (= (fuel-level car2) 500)
         (= (carrier-capacity car2) 15)
         (= (carrier-speed car2) 50)
         (= (fuel-used car2) 0)
@@ -199,7 +199,7 @@
         ;Car3
         (= (item-pick-speed car3) 2)
         (= (item-drop-speed car3) 2)
-        (= (fuel-level car3) 200)
+        (= (fuel-level car3) 500)
         (= (carrier-capacity car3) 15)
         (= (carrier-speed car3) 50)
         (= (fuel-used car3) 0)
@@ -208,7 +208,7 @@
         ;Motorbike1
         (= (item-pick-speed motorbike1) 2)
         (= (item-drop-speed motorbike1)2)
-        (= (fuel-level motorbike1) 25)
+        (= (fuel-level motorbike1) 500)
         (= (carrier-capacity motorbike1) 5)
         (= (carrier-speed motorbike1) 70)
         (= (fuel-used motorbike1) 0)
@@ -217,7 +217,7 @@
         ;Motorbike2
         (= (item-pick-speed motorbike2) 2)
         (= (item-drop-speed motorbike2)2)
-        (= (fuel-level motorbike2) 25)
+        (= (fuel-level motorbike2) 500)
         (= (carrier-capacity motorbike2) 5)
         (= (carrier-speed motorbike2) 70)
         (= (fuel-used motorbike2) 0)
@@ -226,7 +226,7 @@
         ;Motorbike3
         (= (item-pick-speed motorbike3) 2)
         (= (item-drop-speed motorbike3)2)
-        (= (fuel-level motorbike3) 8)
+        (= (fuel-level motorbike3) 500)
         (= (carrier-capacity motorbike3) 5)
         (= (carrier-speed motorbike3) 70)
         (= (fuel-used motorbike3) 0)
@@ -234,7 +234,6 @@
     )
     (:goal (and
 
-            ;(carrier-at car1 three three)
             (item-at package1 four five)
             (item-at package2 eight eight)
             (item-at package3 fourteen fifteen)
