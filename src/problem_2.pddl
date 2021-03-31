@@ -154,7 +154,7 @@
         (adjacent car3 nineteen nineteen)
         (adjacent car3 twenty twenty)
         
-        ;initial loca3ions
+        ;initial locations
         (carrier-at car1 one one)
         (carrier-at car2 five five)
         (carrier-at motorbike1 ten ten)
