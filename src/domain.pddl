@@ -9,7 +9,7 @@
     (:predicates
         (item-at ?i - item ?x ?y - location) 
         (carrier-at ?c - carrier ?x ?y - location)
-        (adjacent ?c -carrier ?coor1 ?coor2 - location)
+        (in-scope ?c -carrier ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
 
         
@@ -17,7 +17,6 @@
 
     (:functions
         (carrier-capacity ?c -carrier) 
-        ;(fuel-capacity ?c -carrier)  
         (fuel-used ?c -carrier) 
         (fuel-level ?c -carrier)
         (total-fuel-used)
@@ -38,8 +37,8 @@
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
-                (at start (adjacent ?c ?lx1 ?lx2))
-                (at start  (adjacent ?c ?ly1 ?ly2))
+                (at start (in-scope ?c ?lx1 ?lx2))
+                (at start  (in-scope ?c ?ly1 ?ly2))
 
         )
         :effect (and 
