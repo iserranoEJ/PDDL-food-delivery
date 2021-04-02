@@ -194,8 +194,6 @@
         (item-at package1 two two)
         (item-at package2 fourteen thirteen)
 
-        (available-delivery car1 two two)
-        (available-delivery motorbike1 fourteen thirteen)
         
         ; (item-at package1 four four)
         ; (item-at package2 twentyfour twentyfive)
