@@ -11,7 +11,7 @@
         (carrier-at ?c - carrier ?x ?y - location)
         (in-scope ?c -carrier ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
-        (available-delivery ?c ?lx ?ly)
+        (available-delivery ?c - carrier ?lx ?ly - location)
 
         
     )
