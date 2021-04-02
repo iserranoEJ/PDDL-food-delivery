@@ -59,8 +59,8 @@
             (at start (available-delivery ?c ?lxdel ?lydel)) ; Needs an item parameter?
             (at start (> (- (carrier-capacity ?c)
             (carrier-weight ?c)) (item-weight ?i)))
-            (over all (item-at ?i ?lx ?ly))
-            (over all (carrier-at ?c ?lx ?ly))
+            (at start (item-at ?i ?lx ?ly))
+            (at start (carrier-at ?c ?lx ?ly))
         )
         :effect (and
             (at end (and 
