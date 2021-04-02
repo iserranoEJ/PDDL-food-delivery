@@ -4,9 +4,7 @@
 
     (:objects car1 -car 
         motorbike1 -motorbike
-        one two three four five six seven eight nine ten eleven twelve thirteen -location
-        fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone -location
-        twentytwo twentythree twentyfour twentyfive - location
+        one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive - location
         package1  package2 - item)
     (:init
         (in-scope car1 one two)

@@ -50,7 +50,6 @@
             ))
         )
     
-    
 
     (:durative-action pick-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
