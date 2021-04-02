@@ -184,7 +184,7 @@
         ;Items
         (= (item-weight package1) 2)
         (= (item-weight package2) 2)
-        (item-at package1 two two)
+        (item-at package1 twenty twenty)
         (item-at package2 thirteen fourteen)
 
         ;Car1
@@ -206,7 +206,7 @@
         (= (carrier-weight motorbike1)0)
     )
     (:goal  (and              
-                (item-at package1 four four)
+                (item-at package1 one one)
                 (item-at package2 twentyfour twentyfive)
             )
     )
