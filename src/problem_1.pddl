@@ -66,9 +66,7 @@
         (in-scope car1 nineteen nineteen)
         (in-scope car1 twenty twenty)
 
-        
         ;Actual scope of car object
-
         ; 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
         ; 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
         ; 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
@@ -153,9 +151,6 @@
         (in-scope motorbike1 seven six)
         (in-scope motorbike1 six six)
 
-
-
-        
         ;Actual scope of motorbike object
         ; 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
         ; 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -190,17 +185,11 @@
         (= (item-weight package1) 2)
         (= (item-weight package2) 2)
         (item-at package1 two two)
-        (item-at package2 fourteen thirteen)
-
-        
-        ; (item-at package1 four four)
-        ; (item-at package2 twentyfour twentyfive)
+        (item-at package2 thirteen fourteen)
 
         ;Car1
         (= (item-pick-speed car1) 2)
         (= (item-drop-speed car1) 2)
-        ;(= (item-handover-speed car1)2)
-        ;(= (item-handover-speed car1)3)
         (= (fuel-level car1) 200)
         (= (carrier-capacity car1) 15)
         (= (carrier-speed car1) 50)
@@ -210,7 +199,6 @@
         ;Motorbike1
         (= (item-pick-speed motorbike1) 2)
         (= (item-drop-speed motorbike1)2)
-        ;(= (item-handover-speed motorbike1)2)
         (= (fuel-level motorbike1) 100)
         (= (carrier-capacity motorbike1)5)
         (= (carrier-speed motorbike1)70)

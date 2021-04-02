@@ -240,7 +240,7 @@
             (item-at package4 twenty nineteen)
             (item-at package5 one one)
             (item-at package6 fifteen sixteen)
-            (item-at package7 one one)
+            (item-at package7 fifteen fifteen)
         )
     )
     (:metric minimize (total-fuel-used))
