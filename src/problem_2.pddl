@@ -160,7 +160,7 @@
         (carrier-at motorbike1 ten ten)
         (carrier-at motorbike2 fifteen fifteen)
         (carrier-at motorbike3 nineteen twenty)
-        (carrier-at car3 fifteen fifteen)
+        (carrier-at car3 one one)
 
         ;Items
         (= (item-weight package1) 2)
