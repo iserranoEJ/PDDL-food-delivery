@@ -11,6 +11,7 @@
         (carrier-at ?c - carrier ?x ?y - location)
         (in-scope ?c -carrier ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
+        (available-delivery ?c ?lx ?ly)
 
         
     )
@@ -32,8 +33,7 @@
         
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
-        :duration 
-            (= ?duration (/(carrier-speed ?c) 50) )
+        :duration (= ?duration 1); (/(carrier-speed ?c) 50) )
         :condition (and 
 	            (at start (> (fuel-level ?c) 0))
                 (at start (carrier-at ?c ?lx1 ?ly1))
@@ -53,9 +53,10 @@
     
 
     (:durative-action pick-item
-        :parameters (?c - carrier ?i - item ?lx ?ly - location)
-        :duration (= ?duration (item-pick-speed ?c))
+        :parameters (?c - carrier ?i - item ?lx ?ly ?lxdel ?lydel - location)
+        :duration (= ?duration 1); (item-pick-speed ?c))
         :condition (and 
+            (at start (available-delivery ?c ?lxdel ?lydel)) ; Needs an item parameter?
             (at start (> (- (carrier-capacity ?c)
             (carrier-weight ?c)) (item-weight ?i)))
             (over all (item-at ?i ?lx ?ly))
@@ -63,6 +64,7 @@
         )
         :effect (and
             (at end (and 
+            
                         (not(item-at ?i ?lx ?ly)) 
                         (item-at-carrier ?i ?c) 
                         (increase (carrier-weight ?c) (item-weight ?i))
@@ -75,7 +77,7 @@
 
     (:durative-action drop-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
-        :duration (= ?duration (item-drop-speed ?c))
+        :duration (= ?duration 1); (item-drop-speed ?c))
         :condition (and 
             (over all  (item-at-carrier ?i ?c))
             (over all(carrier-at ?c ?lx ?ly))
