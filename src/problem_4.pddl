@@ -1,0 +1,118 @@
+(define
+    (problem tsp)
+    (:domain delivery)
+
+    (:objects 
+        car1 -car 
+        one two three four five six seven eight nine ten eleven twelve thirteen -location
+        fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone -location
+        twentytwo twentythree twentyfour twentyfive - location
+        package1  package2 package3 package4 package5 package6 package7 - item)
+    (:init
+
+        ;scope of car1
+        (in-scope car1 one two)
+        (in-scope car1 two one)
+        (in-scope car1 one one)
+        (in-scope car1 two three)
+        (in-scope car1 three two)
+        (in-scope car1 two two)
+        (in-scope car1 three four)
+        (in-scope car1 four three)
+        (in-scope car1 three three)
+        (in-scope car1 four five)
+        (in-scope car1 five four)
+        (in-scope car1 four four)
+        (in-scope car1 five six)
+        (in-scope car1 six five)
+        (in-scope car1 five five)
+        (in-scope car1 six seven)
+        (in-scope car1 seven six)
+        (in-scope car1 six six)
+        (in-scope car1 seven eight)
+        (in-scope car1 eight seven)
+        (in-scope car1 seven seven)
+        (in-scope car1 eight nine)
+        (in-scope car1 nine eight)
+        (in-scope car1 eight eight)
+        (in-scope car1 nine ten)
+        (in-scope car1 ten nine)
+        (in-scope car1 nine nine)
+        (in-scope car1 ten eleven)
+        (in-scope car1 eleven ten)
+        (in-scope car1 ten ten)
+        (in-scope car1 eleven twelve)
+        (in-scope car1 twelve eleven)
+        (in-scope car1 eleven eleven)
+        (in-scope car1 twelve thirteen)
+        (in-scope car1 thirteen twelve)
+        (in-scope car1 twelve twelve)
+        (in-scope car1 thirteen fourteen)
+        (in-scope car1 fourteen thirteen)
+        (in-scope car1 thirteen thirteen)
+        (in-scope car1 fourteen fifteen)
+        (in-scope car1 fifteen fourteen)
+        (in-scope car1 fourteen fourteen)
+        (in-scope car1 fifteen sixteen)
+        (in-scope car1 sixteen fifteen)
+        (in-scope car1 fifteen fifteen)
+        (in-scope car1 sixteen seventeen)
+        (in-scope car1 seventeen sixteen)
+        (in-scope car1 sixteen sixteen)
+        (in-scope car1 seventeen eighteen)
+        (in-scope car1 eighteen seventeen)
+        (in-scope car1 seventeen seventeen)
+        (in-scope car1 eighteen nineteen)
+        (in-scope car1 nineteen eighteen)
+        (in-scope car1 eighteen eighteen)
+        (in-scope car1 nineteen twenty)
+        (in-scope car1 twenty nineteen)
+        (in-scope car1 nineteen nineteen)
+        (in-scope car1 twenty twenty)
+        
+        ;initial locations
+        (carrier-at car1 one one)
+
+        ;Items
+        (= (item-weight package1) 2)
+        (= (item-weight package2) 2)
+        (= (item-weight package3) 2)
+        (= (item-weight package4) 2)
+        (= (item-weight package5) 2)
+        (= (item-weight package6) 2)
+        (= (item-weight package7) 2)
+
+        (item-at-carrier package1 car1)
+        (item-at-carrier package2 car1)
+        (item-at-carrier package3 car1)
+        (item-at-carrier package4 car1)
+        (item-at-carrier package5 car1)
+        (item-at-carrier package6 car1)
+        (item-at-carrier package7 car1)
+
+
+        ;Car1
+        (= (item-pick-speed car1) 2)
+        (= (item-drop-speed car1) 2)
+        (= (fuel-level car1) 500)
+        (= (carrier-capacity car1) 15)
+        (= (carrier-speed car1) 50)
+        (= (fuel-used car1) 0)
+        (= (carrier-weight car1) 0)
+
+       
+    )
+    (:goal (and
+
+            (item-at package1 four five)
+            (item-at package2 eight eight)
+            (item-at package3 fourteen fifteen)
+            (item-at package4 twenty nineteen)
+            (item-at package5 six nine)
+            (item-at package6 fifteen sixteen)
+            (item-at package7 fifteen fifteen)
+        )
+    )
+    (:metric minimize (total-fuel-used))
+    (:metric minimize (distance-travelled))
+)

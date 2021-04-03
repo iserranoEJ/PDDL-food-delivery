@@ -30,7 +30,14 @@
         (distance-travelled)
         
     )
-
+    	        ; (and
+                ; (decrease (fuel-level ?t) (* 2 #t))
+	            ; (at end (at ?rover ?to-waypoint))
+	            ; (at end (been-at ?rover ?to-waypoint))
+	            ; (at start (not (at ?rover ?from-waypoint)))
+	            ; (at start (decrease (battery-amount ?rover) 8))
+                ; (at end (increase (distance-travelled) 5))
+                ; )
         
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
@@ -70,7 +77,7 @@
             (at start (not(item-at ?i ?lx ?ly))) 
             (at end (and 
                         (item-at-carrier ?i ?c) 
-                        (increase (carrier-weight ?c) (item-weight ?i))
+                        (increase (carrier-weight ?c) (item-weight ?i)) ; Make it proportional and not equal
                         (decrease (carrier-speed ?c) (/(item-weight ?i)3))
                         
                     )
