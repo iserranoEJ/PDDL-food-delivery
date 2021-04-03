@@ -29,6 +29,14 @@
         (distance-travelled)
         
     )
+    	        ; (and
+                ; (decrease (fuel-level ?t) (* 2 #t))
+	            ; (at end (at ?rover ?to-waypoint))
+	            ; (at end (been-at ?rover ?to-waypoint))
+	            ; (at start (not (at ?rover ?from-waypoint)))
+	            ; (at start (decrease (battery-amount ?rover) 8))
+                ; (at end (increase (distance-travelled) 5))
+                ; )
         
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
@@ -42,10 +50,9 @@
 
         )
         :effect (and 
-            (decrease (fuel-level ?c) 1) 
             (at start (and 
             (not(carrier-at ?c ?lx1 ?ly1)) 
-             
+            (decrease (fuel-level ?c) 1)  
             ) )
             (at end (and  
             (carrier-at ?c ?lx2 ?ly2)
@@ -87,11 +94,12 @@
             
         )
         :effect (and
-            (decrease (carrier-weight ?c) (item-weight ?i))
-            (increase (carrier-speed ?c) (item-weight ?i))
             (at start (not(item-at-carrier ?i ?c)))
             (at end (and 
-                        (item-at ?i ?lx ?ly)  
+                        (item-at ?i ?lx ?ly)
+                        (decrease (carrier-weight ?c) (item-weight ?i))
+                        (increase (carrier-speed ?c) (item-weight ?i))
+                        
                     )
             )
         )
