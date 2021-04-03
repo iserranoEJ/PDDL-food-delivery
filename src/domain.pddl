@@ -11,6 +11,8 @@
         (carrier-at ?c - carrier ?x ?y - location)
         (in-scope ?c -carrier ?coor1 ?coor2 - location)
         (item-at-carrier ?i - item ?c - carrier)
+
+        
     )
 
     (:functions
@@ -23,27 +25,22 @@
         (carrier-speed ?c -carrier)
         (item-pick-speed ?c -carrier)
         (item-drop-speed ?c -carrier)
-        (distance-travelled)       
+        ;(item-handover-speed ?c - carrier)
+        (distance-travelled)
+        
     )
-    	        ; (and
-                ; (decrease (fuel-level ?t) (* 2 #t))
-	            ; (at end (at ?rover ?to-waypoint))
-	            ; (at end (been-at ?rover ?to-waypoint))
-	            ; (at start (not (at ?rover ?from-waypoint)))
-	            ; (at start (decrease (battery-amount ?rover) 8))
-                ; (at end (increase (distance-travelled) 5))
-                ; )
         
     (:durative-action move
         :parameters (?c -carrier ?lx1 ?ly1 ?lx2 ?ly2 -location)
         :duration 
             (= ?duration (/(carrier-speed ?c) 50) )
         :condition (and 
-	                    (at start (> (fuel-level ?c) 0))
-                        (at start (carrier-at ?c ?lx1 ?ly1))
-                        (at start (in-scope ?c ?lx1 ?lx2))
-                        (at start (in-scope ?c ?ly1 ?ly2))
-                    )
+	            (at start (> (fuel-level ?c) 0))
+                (at start (carrier-at ?c ?lx1 ?ly1))
+                (at start (in-scope ?c ?lx1 ?lx2))
+                (at start  (in-scope ?c ?ly1 ?ly2))
+
+        )
         :effect (and 
             (decrease (fuel-level ?c) 1) 
             (at start (and 
@@ -58,6 +55,7 @@
             ))
         )
     
+
     (:durative-action pick-item
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
         :duration (= ?duration (item-pick-speed ?c))
@@ -71,8 +69,8 @@
             (at start (not(item-at ?i ?lx ?ly))) 
             (at end (and 
                         (item-at-carrier ?i ?c) 
-                        (increase (carrier-weight ?c) (/(item-weight ?i)2)) 
-                        (decrease (carrier-speed ?c) (/(item-weight ?i)2))
+                        (increase (carrier-weight ?c) (item-weight ?i)) ; Make it proportional and not equal
+                        (decrease (carrier-speed ?c) (item-weight ?i))
                         
                     )
             )
@@ -98,4 +96,25 @@
             )
         )
     )
+;
+    ; (:durative-action handover-item
+    ;     :parameters (?c1 ?c2 - carrier ?i - item ?lx ?ly - location)
+    ;     :duration (= ?duration (item-handover-speed ?c1))
+    ;     :condition (and
+    ;         (over all  (carrier-at ?c1 ?lx ?ly))
+    ;         (over all (carrier-at ?c2 ?lx ?ly))
+    ;         (at start (>(-(carrier-capacity ?c2)(carrier-weight ?c2))(item-weight ?i)))
+    ;         (at start (item-at-carrier ?i ?c1))
+    ;     )
+    ;     :effect 
+    ;         (at end (and (increase (carrier-weight ?c2) (item-weight ?i))
+    ;         (decrease (carrier-weight ?c1) (item-weight ?i))
+    ;         (increase (carrier-speed ?c1) (item-weight ?i))
+    ;         (decrease (carrier-speed ?c2) (item-weight ?i))
+    ;         (not (item-at-carrier ?i ?c1))
+    ;         (item-at-carrier ?i ?c2))
+    ;         )
+        
+    ; )
+
 )
