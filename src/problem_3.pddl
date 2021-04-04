@@ -7,8 +7,13 @@
 ;         one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty -location
 ;         food1  food2 food3 food4 food5 food6 food7 food8 food9 food10 food11 food12 food13 food14 food15 food16 food17 food18 food19 food20 - item)
 
+<<<<<<< HEAD
 ;     ; Add types of ants : Soldiers, Queen (Does nothing)
 ;     (:init
+=======
+    ;Add types of ants : Soldiers, Queen (Does nothing)
+    (:init
+>>>>>>> 01aecf3bf7b195f5f52edf4f021e52bfa491dfe9
 
 ;         ;scope of ant1
 ;         (in-scope ant1 one two)
