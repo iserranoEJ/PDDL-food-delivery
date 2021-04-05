@@ -89,9 +89,8 @@
         :parameters (?c - carrier ?i - item ?lx ?ly - location)
         :duration (= ?duration (item-drop-speed ?c))
         :condition (and 
-            (over all  (item-at-carrier ?i ?c))
+            (at start   (item-at-carrier ?i ?c))
             (over all(carrier-at ?c ?lx ?ly))
-            (over all (carrier-at ?c ?lx ?ly))
             
         )
         :effect (and
