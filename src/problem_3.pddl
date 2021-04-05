@@ -612,9 +612,9 @@
         ; (in-scope ant10 twenty twenty)
         
         ;initial locations
-        (carrier-at ant1 one one)
-        (carrier-at ant2 four one)
-        (carrier-at ant3 six one)
+        (carrier-at ant1 six six)
+        ; (carrier-at ant2 four one)
+        ; (carrier-at ant3 six one)
         ; (carrier-at ant4 eight one)
         ; (carrier-at ant5 ten one)
         ; (carrier-at ant6 one two)
