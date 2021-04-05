@@ -94,7 +94,7 @@
             
         )
         :effect (and
-            (at end (not(item-at-carrier ?i ?c)))
+            (at start (not(item-at-carrier ?i ?c))) ;
             (at end (and 
                         (item-at ?i ?lx ?ly)
                         (decrease (carrier-weight ?c) (item-weight ?i))
