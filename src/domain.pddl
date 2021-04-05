@@ -75,9 +75,9 @@
         )
         :effect (and
             (at start (not(item-at ?i ?lx ?ly))) 
+            (at start (increase (carrier-weight ?c) (item-weight ?i)))
             (at end (and 
                         (item-at-carrier ?i ?c) 
-                        (increase (carrier-weight ?c) (item-weight ?i)) ; Make it proportional and not equal
                         (decrease (carrier-speed ?c) (/(item-weight ?i)3))
                         
                     )
@@ -94,10 +94,10 @@
             
         )
         :effect (and
-            (at start (not(item-at-carrier ?i ?c))) ;
+            (at start (not(item-at-carrier ?i ?c))) 
+            (at start (decrease (carrier-weight ?c) (item-weight ?i)))
             (at end (and 
                         (item-at ?i ?lx ?ly)
-                        (decrease (carrier-weight ?c) (item-weight ?i))
                         (increase (carrier-speed ?c) (/(item-weight ?i)3))
                         
                     )
