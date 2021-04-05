@@ -5,8 +5,8 @@
 
     (:objects 
         ant1 - worker ;ant2 - worker ant3 - worker ; ant4 - worker ant5 - worker ant6 - worker ant7 - worker ant8 - worker ant9 - soldier ant10 - queen
-        one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty -location
-        food1  food2 food3 food4 food5 food6 food7 food8 food9 food10 -item);food11 food12 food13 food14 food15 food16 food17 food18 food19 food20 - item)
+        one two three four five six seven eight nine ten -location
+        food1  food2 food3 food4 food5 food6 food7 -item); food8 food9 food10 food11 food12 food13 food14 food15 food16 food17 food18 food19 food20 - item)
 
     ; Add types of ants : Soldiers, Queen (Does nothing)
     (:init
@@ -39,37 +39,8 @@
         (in-scope ant1 nine ten)
         (in-scope ant1 ten nine)
         (in-scope ant1 nine nine)
-        (in-scope ant1 ten eleven)
-        (in-scope ant1 eleven ten)
         (in-scope ant1 ten ten)
-        (in-scope ant1 eleven twelve)
-        (in-scope ant1 twelve eleven)
-        (in-scope ant1 eleven eleven)
-        (in-scope ant1 twelve thirteen)
-        (in-scope ant1 thirteen twelve)
-        (in-scope ant1 twelve twelve)
-        (in-scope ant1 thirteen fourteen)
-        (in-scope ant1 fourteen thirteen)
-        (in-scope ant1 thirteen thirteen)
-        (in-scope ant1 fourteen fifteen)
-        (in-scope ant1 fifteen fourteen)
-        (in-scope ant1 fourteen fourteen)
-        (in-scope ant1 fifteen sixteen)
-        (in-scope ant1 sixteen fifteen)
-        (in-scope ant1 fifteen fifteen)
-        (in-scope ant1 sixteen seventeen)
-        (in-scope ant1 seventeen sixteen)
-        (in-scope ant1 sixteen sixteen)
-        (in-scope ant1 seventeen eighteen)
-        (in-scope ant1 eighteen seventeen)
-        (in-scope ant1 seventeen seventeen)
-        (in-scope ant1 eighteen nineteen)
-        (in-scope ant1 nineteen eighteen)
-        (in-scope ant1 eighteen eighteen)
-        (in-scope ant1 nineteen twenty)
-        (in-scope ant1 twenty nineteen)
-        (in-scope ant1 nineteen nineteen)
-        (in-scope ant1 twenty twenty)
+
 
 
         ; ;scope of ant2
@@ -636,9 +607,9 @@
         (= (item-weight food6) 6)
         (= (item-weight food7) 4)
         
-        (= (item-weight food8) 10)
-        (= (item-weight food9) 7)
-        (= (item-weight food10) 5)
+        ; (= (item-weight food8) 10)
+        ; (= (item-weight food9) 7)
+        ; (= (item-weight food10) 5)
         ; (= (item-weight food11) 3)
         ; (= (item-weight food12) 3)
         ; (= (item-weight food13) 2)
@@ -652,17 +623,17 @@
         ; (= (item-weight food20) 2)
 
 
-        (item-at food1 ten ten)
-        (item-at food2 ten eleven)
-        (item-at food3 ten twelve)
-        (item-at food4 ten fourteen)
-        (item-at food5 ten thirteen)
-        (item-at food6 ten fifteen)
-        (item-at food7 ten sixteen)
+        (item-at food1 five five)
+        (item-at food2 six five)
+        (item-at food3 seven five)
+        (item-at food4 five six)
+        (item-at food5 five seven)
+        (item-at food6 eight five)
+        (item-at food7 five eight)
 
-        (item-at food8 twelve ten)
-        (item-at food9 twelve eleven)
-        (item-at food10 twelve twelve)
+        ; (item-at food8 twelve ten)
+        ; (item-at food9 twelve eleven)
+        ; (item-at food10 twelve twelve)
         ; (item-at food11 twelve thirteen)
         ; (item-at food12 twelve fourteen)
         ; (item-at food13 twelve fifteen)
@@ -777,9 +748,9 @@
             (item-at food5 one one)
             (item-at food6 one one)
             (item-at food7 one one)
-            (item-at food8 one one)
-            (item-at food9 one one)
-            (item-at food10 one one)
+            ; (item-at food8 one one)
+            ; (item-at food9 one one)
+            ; (item-at food10 one one)
             ; (item-at food11 one one)
             ; (item-at food12 one one)
             ; (item-at food13 one one)
