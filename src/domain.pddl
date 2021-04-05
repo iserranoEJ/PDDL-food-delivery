@@ -75,9 +75,9 @@
         )
         :effect (and
             (at start (not(item-at ?i ?lx ?ly))) 
-            (at start (increase (carrier-weight ?c) (item-weight ?i)))
             (at end (and 
                         (item-at-carrier ?i ?c) 
+                        (increase (carrier-weight ?c) (item-weight ?i)) ; Make it proportional and not equal
                         (decrease (carrier-speed ?c) (/(item-weight ?i)3))
                         
                     )
@@ -94,16 +94,35 @@
             
         )
         :effect (and
-            (at start (not(item-at-carrier ?i ?c))) 
-            (at start (decrease (carrier-weight ?c) (item-weight ?i)))
+            (at start (not(item-at-carrier ?i ?c))) ;
             (at end (and 
                         (item-at ?i ?lx ?ly)
+                        (decrease (carrier-weight ?c) (item-weight ?i))
                         (increase (carrier-speed ?c) (/(item-weight ?i)3))
                         
                     )
             )
         )
     )
-
+;
+    ; (:durative-action handover-item
+    ;     :parameters (?c1 ?c2 - carrier ?i - item ?lx ?ly - location)
+    ;     :duration (= ?duration (item-handover-speed ?c1))
+    ;     :condition (and
+    ;         (over all  (carrier-at ?c1 ?lx ?ly))
+    ;         (over all (carrier-at ?c2 ?lx ?ly))
+    ;         (at start (>(-(carrier-capacity ?c2)(carrier-weight ?c2))(item-weight ?i)))
+    ;         (at start (item-at-carrier ?i ?c1))
+    ;     )
+    ;     :effect 
+    ;         (at end (and (increase (carrier-weight ?c2) (item-weight ?i))
+    ;         (decrease (carrier-weight ?c1) (item-weight ?i))
+    ;         (increase (carrier-speed ?c1) (item-weight ?i))
+    ;         (decrease (carrier-speed ?c2) (item-weight ?i))
+    ;         (not (item-at-carrier ?i ?c1))
+    ;         (item-at-carrier ?i ?c2))
+    ;         )
+        
+    ; )
 
 )
