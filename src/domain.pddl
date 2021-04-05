@@ -104,7 +104,7 @@
             )
         )
     )
-;
+
     ; (:durative-action handover-item
     ;     :parameters (?c1 ?c2 - carrier ?i - item ?lx ?ly - location)
     ;     :duration (= ?duration (item-handover-speed ?c1))
