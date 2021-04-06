@@ -111,9 +111,6 @@
         (carrier-at ant3 four four)
 
 
-
-        
-
         ;Items
         (= (item-weight food1) 1)
         (= (item-weight food2) 2)
