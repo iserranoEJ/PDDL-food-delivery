@@ -1,14 +1,13 @@
-  
 (define
-    (problem ant-colony2)
+    (problem ant-colony)
     (:domain delivery)
 
     (:objects 
-        ant1 - worker ant2 - soldier ant3 - worker ant4 - queen 
+        ant1 - worker ant2 - worker ant3 - worker ; ant4 - worker ant5 - worker ant6 - worker ant7 - worker ant8 - worker ant9 - soldier ant10 - queen
         one two three four five six seven eight nine ten -location
-        food1  food2 food3 -item)
+        food1  food2 food3 -item); food4 food5 food6 food7 -item); food8 food9 food10 food11 food12 food13 food14 food15 food16 food17 food18 food19 food20 - item)
 
-
+    ; Add types of ants : Soldiers, Queen (Does nothing)
     (:init
 
         ;scope of ant1
@@ -102,36 +101,6 @@
         (in-scope ant3 ten nine)
         (in-scope ant3 nine nine)
         (in-scope ant3 ten ten)
-                
-        ;scope of ant4
-        (in-scope ant4 one two)
-        (in-scope ant4 two one)
-        (in-scope ant4 one one)
-        (in-scope ant4 two three)
-        (in-scope ant4 three two)
-        (in-scope ant4 two two)
-        (in-scope ant4 three four)
-        (in-scope ant4 four three)
-        (in-scope ant4 three three)
-        (in-scope ant4 four five)
-        (in-scope ant4 five four)
-        (in-scope ant4 four four)
-        (in-scope ant4 five six)
-        (in-scope ant4 six five)
-        (in-scope ant4 five five)
-        (in-scope ant4 six seven)
-        (in-scope ant4 seven six)
-        (in-scope ant4 six six)
-        (in-scope ant4 seven eight)
-        (in-scope ant4 eight seven)
-        (in-scope ant4 seven seven)
-        (in-scope ant4 eight nine)
-        (in-scope ant4 nine eight)
-        (in-scope ant4 eight eight)
-        (in-scope ant4 nine ten)
-        (in-scope ant4 ten nine)
-        (in-scope ant4 nine nine)
-        (in-scope ant4 ten ten)
 
         
       
@@ -139,8 +108,6 @@
         (carrier-at ant1 six six)
         (carrier-at ant2 five five)
         (carrier-at ant3 four four)
-        (carrier-at ant4 three four)
-
 
 
         ;Items
@@ -149,12 +116,9 @@
         (= (item-weight food3) 5)
 
 
-
         (item-at food1 five five)
         (item-at food2 six five)
-        (item-at food3 seven seven)
-
-
+        (item-at food3 seven five)
 
         
 
@@ -171,7 +135,7 @@
         (= (item-pick-speed ant2) 3)
         (= (item-drop-speed ant2) 2)
         (= (fuel-level ant2) 500)
-        (= (carrier-capacity ant2) 10)
+        (= (carrier-capacity ant2) 15)
         (= (carrier-speed ant2) 50)
         (= (fuel-used ant2) 0)
         (= (carrier-weight ant2) 0)
@@ -180,19 +144,10 @@
         (= (item-pick-speed ant3) 1)
         (= (item-drop-speed ant3) 4)
         (= (fuel-level ant3) 500)
-        (= (carrier-capacity ant3) 20)
-        (= (carrier-speed ant3) 70)
+        (= (carrier-capacity ant3) 15)
+        (= (carrier-speed ant3) 50)
         (= (fuel-used ant3) 0)
         (= (carrier-weight ant3) 0)
-        
-        ;ant4
-        (= (item-pick-speed ant4) 0)
-        (= (item-drop-speed ant4) 0)
-        (= (fuel-level ant4) 0)
-        (= (carrier-capacity ant4) 0)
-        (= (carrier-speed ant4) 0)
-        (= (fuel-used ant4) 0)
-        (= (carrier-weight ant4) 0)
         
 
         
