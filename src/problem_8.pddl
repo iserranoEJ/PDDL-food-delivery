@@ -6,9 +6,9 @@
     (:objects 
         ant1 - worker ant2 - soldier ant3 - worker ant4 - queen 
         one two three four five six seven eight nine ten -location
-        food1  food2 food3 food4 food5 food6 food7 -item); food8 food9 food10 food11 food12 food13 food14 food15 food16 food17 food18 food19 food20 - item)
+        food1  food2 food3 -item)
 
-    ; Add types of ants : Soldiers, Queen (Does nothing)
+
     (:init
 
         ;scope of ant1
@@ -139,7 +139,7 @@
         (carrier-at ant1 six six)
         (carrier-at ant2 five five)
         (carrier-at ant3 four four)
-        (carrier-at ant4 four four)
+        (carrier-at ant4 three four)
 
 
 
@@ -147,19 +147,13 @@
         (= (item-weight food1) 1)
         (= (item-weight food2) 2)
         (= (item-weight food3) 5)
-        (= (item-weight food4) 3)
-        (= (item-weight food5) 4)
-        (= (item-weight food6) 5)
-        (= (item-weight food7) 2)
+
 
 
         (item-at food1 five five)
         (item-at food2 six five)
         (item-at food3 seven five)
-        (item-at food4 eight eight)
-        (item-at food5 nine nine)
-        (item-at food6 seven seven)
-        (item-at food7 four four)
+
 
 
         
@@ -209,10 +203,6 @@
             (item-at food1 one one)
             (item-at food2 one one)
             (item-at food3 one one)
-            (item-at food4 one one)
-            (item-at food5 one one)
-            (item-at food6 one one)
-            (item-at food7 one one)
 
         )
     )
