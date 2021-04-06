@@ -1,6 +1,6 @@
   
 (define
-    (problem ant-colony-2)
+    (problem ant-colony2)
     (:domain delivery)
 
     (:objects 
@@ -138,18 +138,29 @@
         ;initial locations
         (carrier-at ant1 six six)
         (carrier-at ant2 five five)
+        (carrier-at ant3 four four)
         (carrier-at ant4 four four)
+
 
 
         ;Items
         (= (item-weight food1) 1)
         (= (item-weight food2) 2)
         (= (item-weight food3) 5)
+        (= (item-weight food4) 3)
+        (= (item-weight food5) 4)
+        (= (item-weight food6) 5)
+        (= (item-weight food7) 2)
 
 
         (item-at food1 five five)
         (item-at food2 six five)
         (item-at food3 seven five)
+        (item-at food4 eight eight)
+        (item-at food5 nine nine)
+        (item-at food6 seven seven)
+        (item-at food7 four four)
+
 
         
 
