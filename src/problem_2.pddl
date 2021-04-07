@@ -243,6 +243,5 @@
             (item-at package7 fifteen fifteen)
         )
     )
-    ;(:metric minimize (total-fuel-used))
-    (:metric minimize (distance-travelled))
+    (:metric minimize (total-fuel-used))
 )
