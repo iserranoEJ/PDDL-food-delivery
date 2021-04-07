@@ -8,7 +8,7 @@
         one two three four five six seven eight nine ten eleven twelve thirteen -location
         fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone -location
         twentytwo twentythree twentyfour twentyfive - location
-        package1  package2 package3 package4 package5 package6 package7 - item)
+        package1  package2 package3 package4 package5 package6 - item)
     (:init
         ;scope of car1
         (in-scope car1 one two)
@@ -198,7 +198,7 @@
         (= (item-pick-speed car3) 2)
         (= (item-drop-speed car3) 2)
         (= (fuel-level car3) 500)
-        (= (carrier-capacity car3) 6)
+        (= (carrier-capacity car3) 15)
         (= (carrier-speed car3) 50)
         (= (fuel-used car3) 0)
         (= (carrier-weight car3) 0)
