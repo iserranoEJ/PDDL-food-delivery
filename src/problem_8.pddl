@@ -181,7 +181,7 @@
         (item-at food1 five five)
         (item-at food2 six five)
         (item-at food3 seven six)
-        (item-at food4 seven six)
+        (item-at food4 five six)
         (item-at food5 six six)
 
         
@@ -213,7 +213,7 @@
         (= (fuel-used ant3) 0)
         (= (carrier-weight ant3) 0)
 
-                ;ant4
+        ;ant4
         (= (item-pick-speed ant4) 1)
         (= (item-drop-speed ant4) 4)
         (= (fuel-level ant4) 500)
@@ -221,6 +221,7 @@
         (= (carrier-speed ant4) 50)
         (= (fuel-used ant4) 0)
         (= (carrier-weight ant4) 0)
+        
         ;ant5
         (= (item-pick-speed ant5) 1)
         (= (item-drop-speed ant5) 4)
