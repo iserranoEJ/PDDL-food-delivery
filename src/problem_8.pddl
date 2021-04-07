@@ -167,7 +167,7 @@
         (carrier-at ant2 five five)
         (carrier-at ant3 four four)
         (carrier-at ant4 three four)
-        (carrier-at ant5 six six)
+        (carrier-at ant5 three three)
 
 
         ;Items
@@ -180,9 +180,9 @@
 
         (item-at food1 five five)
         (item-at food2 six five)
-        (item-at food3 seven five)
-        (item-at food4 eight six)
-        (item-at food5 nine nine)
+        (item-at food3 seven six)
+        (item-at food4 seven six)
+        (item-at food5 six six)
 
         
 
