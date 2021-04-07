@@ -1,14 +1,11 @@
-  
 (define
-    (problem ant-colony2)
+    (problem ant-colony)
     (:domain delivery)
 
     (:objects 
-        ant1 - worker ant2 - soldier ant3 - worker ant4 - queen 
+        ant1 - worker ant2 - worker ant3 - worker  ant4 - worker ant5 - worker; ant6 - worker ant7 - worker ant8 - worker ant9 - soldier ant10 - queen
         one two three four five six seven eight nine ten -location
-        food1  food2 food3 -item)
-
-
+        food1  food2 food3 food4 food5 -item)
     (:init
 
         ;scope of ant1
@@ -102,7 +99,7 @@
         (in-scope ant3 ten nine)
         (in-scope ant3 nine nine)
         (in-scope ant3 ten ten)
-                
+
         ;scope of ant4
         (in-scope ant4 one two)
         (in-scope ant4 two one)
@@ -132,6 +129,36 @@
         (in-scope ant4 ten nine)
         (in-scope ant4 nine nine)
         (in-scope ant4 ten ten)
+            
+        ;scope of ant5
+        (in-scope ant5 one two)
+        (in-scope ant5 two one)
+        (in-scope ant5 one one)
+        (in-scope ant5 two three)
+        (in-scope ant5 three two)
+        (in-scope ant5 two two)
+        (in-scope ant5 three four)
+        (in-scope ant5 four three)
+        (in-scope ant5 three three)
+        (in-scope ant5 four five)
+        (in-scope ant5 five four)
+        (in-scope ant5 four four)
+        (in-scope ant5 five six)
+        (in-scope ant5 six five)
+        (in-scope ant5 five five)
+        (in-scope ant5 six seven)
+        (in-scope ant5 seven six)
+        (in-scope ant5 six six)
+        (in-scope ant5 seven eight)
+        (in-scope ant5 eight seven)
+        (in-scope ant5 seven seven)
+        (in-scope ant5 eight nine)
+        (in-scope ant5 nine eight)
+        (in-scope ant5 eight eight)
+        (in-scope ant5 nine ten)
+        (in-scope ant5 ten nine)
+        (in-scope ant5 nine nine)
+        (in-scope ant5 ten ten)
 
         
       
@@ -140,21 +167,22 @@
         (carrier-at ant2 five five)
         (carrier-at ant3 four four)
         (carrier-at ant4 three four)
-
+        (carrier-at ant5 six six)
 
 
         ;Items
         (= (item-weight food1) 1)
         (= (item-weight food2) 2)
         (= (item-weight food3) 5)
-
+        (= (item-weight food3) 7)
+        (= (item-weight food3) 10)
 
 
         (item-at food1 five five)
         (item-at food2 six five)
-        (item-at food3 seven seven)
-
-
+        (item-at food3 seven five)
+        (item-at food4 eight six)
+        (item-at food5 nine nine)
 
         
 
@@ -171,7 +199,7 @@
         (= (item-pick-speed ant2) 3)
         (= (item-drop-speed ant2) 2)
         (= (fuel-level ant2) 500)
-        (= (carrier-capacity ant2) 10)
+        (= (carrier-capacity ant2) 15)
         (= (carrier-speed ant2) 50)
         (= (fuel-used ant2) 0)
         (= (carrier-weight ant2) 0)
@@ -180,19 +208,27 @@
         (= (item-pick-speed ant3) 1)
         (= (item-drop-speed ant3) 4)
         (= (fuel-level ant3) 500)
-        (= (carrier-capacity ant3) 20)
-        (= (carrier-speed ant3) 70)
+        (= (carrier-capacity ant3) 15)
+        (= (carrier-speed ant3) 50)
         (= (fuel-used ant3) 0)
         (= (carrier-weight ant3) 0)
-        
-        ;ant4
-        (= (item-pick-speed ant4) 0)
-        (= (item-drop-speed ant4) 0)
-        (= (fuel-level ant4) 0)
-        (= (carrier-capacity ant4) 0)
-        (= (carrier-speed ant4) 0)
+
+                ;ant4
+        (= (item-pick-speed ant4) 1)
+        (= (item-drop-speed ant4) 4)
+        (= (fuel-level ant4) 500)
+        (= (carrier-capacity ant4) 15)
+        (= (carrier-speed ant4) 50)
         (= (fuel-used ant4) 0)
         (= (carrier-weight ant4) 0)
+        ;ant5
+        (= (item-pick-speed ant5) 1)
+        (= (item-drop-speed ant5) 4)
+        (= (fuel-level ant5) 500)
+        (= (carrier-capacity ant5) 15)
+        (= (carrier-speed ant5) 50)
+        (= (fuel-used ant5) 0)
+        (= (carrier-weight ant5) 0)
         
 
         
@@ -203,6 +239,8 @@
             (item-at food1 one one)
             (item-at food2 one one)
             (item-at food3 one one)
+            (item-at food4 one one)
+            (item-at food5 one one)
 
         )
     )
