@@ -127,7 +127,7 @@
         (in-scope motorbike1 six six)
         
         ;carrier initial locations
-        (carrier-at car1 one one)
+        (carrier-at car1 three three)
         (carrier-at motorbike1 six six)
 
         ;Items
